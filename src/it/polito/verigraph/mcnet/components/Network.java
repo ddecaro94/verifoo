@@ -691,7 +691,7 @@ public class Network extends Core {
 																		ctx.mkOr(nextHopsWithoutOptional.toArray(tmpWithoutOptional))
 																)
 												,1, null, null, null, null);
-					System.out.println("No optional conditions: " + initialWithoutOptional);
+					//System.out.println("No optional conditions: " + initialWithoutOptional);
 				}
 			}
 			

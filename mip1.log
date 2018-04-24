@@ -1,0 +1,2000 @@
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:00:23
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:00:40
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:02:04
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:03:09
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:03:44
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:03:55
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:04:10
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:04:45
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:04:58
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:06:23
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:09:25
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:11:18
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:14:37
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:16:10
+
+Academic license - for non-commercial use only
+Optimize a model with 62 rows, 85 columns and 133 nonzeros
+Model has 60 quadratic constraints
+Variable types: 0 continuous, 85 integer (85 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 40 rows and 33 columns
+Presolve time: 0.01s
+Presolved: 202 rows, 112 columns, 505 nonzeros
+Variable types: 0 continuous, 112 integer (112 binary)
+Found heuristic solution: objective 3.0000000
+Found heuristic solution: objective 2.0000000
+
+Root relaxation: objective 1.000000e+00, 18 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       1.0000000    1.00000  0.00%     -    0s
+
+Explored 1 nodes (18 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 3: 1 2 3 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+00, best bound 1.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:23:03
+
+Academic license - for non-commercial use only
+Optimize a model with 62 rows, 85 columns and 133 nonzeros
+Model has 60 quadratic constraints
+Variable types: 0 continuous, 85 integer (85 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 40 rows and 33 columns
+Presolve time: 0.00s
+Presolved: 202 rows, 112 columns, 505 nonzeros
+Variable types: 0 continuous, 112 integer (112 binary)
+Found heuristic solution: objective 3.0000000
+Found heuristic solution: objective 2.0000000
+
+Root relaxation: objective 1.000000e+00, 18 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       1.0000000    1.00000  0.00%     -    0s
+
+Explored 1 nodes (18 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 3: 1 2 3 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+00, best bound 1.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:33:28
+
+Academic license - for non-commercial use only
+Optimize a model with 62 rows, 85 columns and 133 nonzeros
+Model has 60 quadratic constraints
+Variable types: 0 continuous, 85 integer (85 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 58 rows and 53 columns
+Presolve time: 0.00s
+Presolved: 37 rows, 35 columns, 60 nonzeros
+Variable types: 0 continuous, 35 integer (35 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:36:14
+
+Academic license - for non-commercial use only
+Optimize a model with 62 rows, 85 columns and 133 nonzeros
+Model has 60 quadratic constraints
+Variable types: 0 continuous, 85 integer (85 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 58 rows and 53 columns
+Presolve time: 0.00s
+Presolved: 37 rows, 35 columns, 60 nonzeros
+Variable types: 0 continuous, 35 integer (35 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:39:01
+
+Academic license - for non-commercial use only
+Optimize a model with 62 rows, 85 columns and 133 nonzeros
+Model has 60 quadratic constraints
+Variable types: 0 continuous, 85 integer (85 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 58 rows and 53 columns
+Presolve time: 0.00s
+Presolved: 37 rows, 35 columns, 60 nonzeros
+Variable types: 0 continuous, 35 integer (35 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:40:23
+
+Academic license - for non-commercial use only
+Optimize a model with 62 rows, 85 columns and 133 nonzeros
+Model has 60 quadratic constraints
+Variable types: 0 continuous, 85 integer (85 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 58 rows and 53 columns
+Presolve time: 0.00s
+Presolved: 37 rows, 35 columns, 60 nonzeros
+Variable types: 0 continuous, 35 integer (35 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:45:01
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:48:17
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.01s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:57:08
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 16:58:08
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:01:30
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:02:21
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:10:30
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:13:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:13:25
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:14:13
+
+Academic license - for non-commercial use only
+Optimize a model with 397 rows, 504 columns and 741 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 366 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:14:46
+
+Academic license - for non-commercial use only
+Optimize a model with 406 rows, 504 columns and 804 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 375 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 995 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.000000e+00, 21 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       3.0000000    3.00000  0.00%     -    0s
+
+Explored 1 nodes (21 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:16:08
+
+Academic license - for non-commercial use only
+Optimize a model with 406 rows, 504 columns and 804 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 375 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 446 rows, 261 columns, 1001 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.333333e+00, 21 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    3.33333    0   13    5.00000    3.33333  33.3%     -    0s
+H    0     0                       4.0000000    3.33333  16.7%     -    0s
+
+Explored 1 nodes (33 simplex iterations) in 0.03 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:17:49
+
+Academic license - for non-commercial use only
+Optimize a model with 406 rows, 504 columns and 804 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 374 rows and 357 columns
+Presolve time: 0.00s
+Presolved: 447 rows, 261 columns, 1007 nonzeros
+Variable types: 0 continuous, 261 integer (261 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 3.500000e+00, 24 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    3.50000    0   12    5.00000    3.50000  30.0%     -    0s
+H    0     0                       4.0000000    3.50000  12.5%     -    0s
+
+Explored 1 nodes (37 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:23:39
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:24:13
+
+Academic license - for non-commercial use only
+Optimize a model with 406 rows, 504 columns and 804 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 385 rows and 367 columns
+Presolve time: 0.00s
+Presolved: 306 rows, 202 columns, 633 nonzeros
+Variable types: 0 continuous, 202 integer (202 binary)
+Found heuristic solution: objective 6.0000000
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 5 6 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.000000000000e+00, best bound 5.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:25:27
+
+Academic license - for non-commercial use only
+Optimize a model with 406 rows, 504 columns and 804 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 385 rows and 367 columns
+Presolve time: 0.00s
+Presolved: 306 rows, 202 columns, 633 nonzeros
+Variable types: 0 continuous, 202 integer (202 binary)
+Found heuristic solution: objective 6.0000000
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 5 6 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.000000000000e+00, best bound 5.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:29:06
+
+Academic license - for non-commercial use only
+Optimize a model with 406 rows, 504 columns and 804 nonzeros
+Model has 432 quadratic constraints
+Variable types: 0 continuous, 504 integer (504 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+01]
+Presolve removed 390 rows and 372 columns
+Presolve time: 0.00s
+Presolved: 236 rows, 172 columns, 438 nonzeros
+Variable types: 0 continuous, 172 integer (172 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 1: 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.000000000000e+00, best bound 5.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:37:41
+
+Academic license - for non-commercial use only
+Optimize a model with 2958 rows, 3432 columns and 4050 nonzeros
+Model has 3234 quadratic constraints
+Variable types: 0 continuous, 3432 integer (3432 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 8e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 2858 rows and 2823 columns
+Presolve time: 0.02s
+Presolved: 4101 rows, 1815 columns, 9265 nonzeros
+Variable types: 0 continuous, 1815 integer (1815 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 4.000000e+00, 39 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    4.00000    0   12    5.00000    4.00000  20.0%     -    0s
+H    0     0                       4.0000000    4.00000  0.00%     -    0s
+
+Explored 1 nodes (111 simplex iterations) in 0.07 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:39:01
+
+Academic license - for non-commercial use only
+Optimize a model with 2958 rows, 3432 columns and 4050 nonzeros
+Model has 3234 quadratic constraints
+Variable types: 0 continuous, 3432 integer (3432 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 8e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 2858 rows and 2823 columns
+Presolve time: 0.01s
+Presolved: 4101 rows, 1815 columns, 9265 nonzeros
+Variable types: 0 continuous, 1815 integer (1815 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 4.000000e+00, 39 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    4.00000    0   12    5.00000    4.00000  20.0%     -    0s
+H    0     0                       4.0000000    4.00000  0.00%     -    0s
+
+Explored 1 nodes (111 simplex iterations) in 0.06 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:40:42
+
+Academic license - for non-commercial use only
+Optimize a model with 2958 rows, 3432 columns and 4050 nonzeros
+Model has 3234 quadratic constraints
+Variable types: 0 continuous, 3432 integer (3432 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 8e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 2858 rows and 2823 columns
+Presolve time: 0.01s
+Presolved: 4101 rows, 1815 columns, 9265 nonzeros
+Variable types: 0 continuous, 1815 integer (1815 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 4.000000e+00, 39 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    4.00000    0   12    5.00000    4.00000  20.0%     -    0s
+H    0     0                       4.0000000    4.00000  0.00%     -    0s
+
+Explored 1 nodes (111 simplex iterations) in 0.05 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:41:20
+
+Academic license - for non-commercial use only
+Optimize a model with 2958 rows, 3432 columns and 4050 nonzeros
+Model has 3234 quadratic constraints
+Variable types: 0 continuous, 3432 integer (3432 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 8e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 2858 rows and 2823 columns
+Presolve time: 0.02s
+Presolved: 4101 rows, 1815 columns, 9265 nonzeros
+Variable types: 0 continuous, 1815 integer (1815 binary)
+Found heuristic solution: objective 5.0000000
+
+Root relaxation: objective 4.000000e+00, 39 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    4.00000    0   12    5.00000    4.00000  20.0%     -    0s
+H    0     0                       4.0000000    4.00000  0.00%     -    0s
+
+Explored 1 nodes (111 simplex iterations) in 0.06 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 5 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:43:34
+
+Academic license - for non-commercial use only
+Optimize a model with 29973 rows, 31363 columns and 32416 nonzeros
+Model has 30810 quadratic constraints
+Variable types: 0 continuous, 31363 integer (31363 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 6e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 29808 rows and 29650 columns
+Presolve time: 0.06s
+Presolved: 20467 rows, 8097 columns, 46653 nonzeros
+Variable types: 0 continuous, 8097 integer (8097 binary)
+Found heuristic solution: objective 6.0000000
+Found heuristic solution: objective 4.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.18 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 6 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/23/18 17:54:23
+
+Academic license - for non-commercial use only
+Optimize a model with 1719 rows, 1980 columns and 2220 nonzeros
+Model has 1848 quadratic constraints
+Variable types: 0 continuous, 1980 integer (1980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 1695 rows and 1651 columns
+Presolve time: 0.01s
+Presolved: 915 rows, 538 columns, 1835 nonzeros
+Variable types: 0 continuous, 538 integer (538 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:04:21
+
+Academic license - for non-commercial use only
+Optimize a model with 1719 rows, 1980 columns and 2220 nonzeros
+Model has 1848 quadratic constraints
+Variable types: 0 continuous, 1980 integer (1980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 1695 rows and 1651 columns
+Presolve time: 0.01s
+Presolved: 915 rows, 538 columns, 1835 nonzeros
+Variable types: 0 continuous, 538 integer (538 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:05:00
+
+Academic license - for non-commercial use only
+Optimize a model with 1719 rows, 1980 columns and 2220 nonzeros
+Model has 1848 quadratic constraints
+Variable types: 0 continuous, 1980 integer (1980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 1695 rows and 1651 columns
+Presolve time: 0.01s
+Presolved: 915 rows, 538 columns, 1835 nonzeros
+Variable types: 0 continuous, 538 integer (538 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:08:48
+
+Academic license - for non-commercial use only
+Optimize a model with 1719 rows, 1980 columns and 2220 nonzeros
+Model has 1848 quadratic constraints
+Variable types: 0 continuous, 1980 integer (1980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 1695 rows and 1651 columns
+Presolve time: 0.01s
+Presolved: 915 rows, 538 columns, 1835 nonzeros
+Variable types: 0 continuous, 538 integer (538 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:09:26
+
+Academic license - for non-commercial use only
+Optimize a model with 1719 rows, 1980 columns and 2220 nonzeros
+Model has 1848 quadratic constraints
+Variable types: 0 continuous, 1980 integer (1980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 1695 rows and 1651 columns
+Presolve time: 0.00s
+Presolved: 915 rows, 538 columns, 1835 nonzeros
+Variable types: 0 continuous, 538 integer (538 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:15:04
+
+Academic license - for non-commercial use only
+Optimize a model with 1719 rows, 1980 columns and 2220 nonzeros
+Model has 1848 quadratic constraints
+Variable types: 0 continuous, 1980 integer (1980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 1695 rows and 1651 columns
+Presolve time: 0.01s
+Presolved: 915 rows, 538 columns, 1835 nonzeros
+Variable types: 0 continuous, 538 integer (538 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.02 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:17:31
+
+Academic license - for non-commercial use only
+Optimize a model with 1719 rows, 1980 columns and 2220 nonzeros
+Model has 1848 quadratic constraints
+Variable types: 0 continuous, 1980 integer (1980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 1695 rows and 1651 columns
+Presolve time: 0.01s
+Presolved: 915 rows, 538 columns, 1835 nonzeros
+Variable types: 0 continuous, 538 integer (538 binary)
+Found heuristic solution: objective 4.0000000
+Found heuristic solution: objective 3.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 3 4 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:17:48
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:24:06
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:27:11
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:27:17
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:28:15
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:28:23
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:28:23
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:30:29
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:30:37
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:32:48
+
+Academic license - for non-commercial use only
+Optimize a model with 73 rows, 85 columns and 149 nonzeros
+Model has 60 quadratic constraints
+Variable types: 0 continuous, 85 integer (85 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 4e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 66 rows and 16 columns
+Presolve time: 0.00s
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 4 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:32:48
+
+Academic license - for non-commercial use only
+Optimize a model with 219 rows, 265 columns and 375 nonzeros
+Model has 300 quadratic constraints
+Variable types: 0 continuous, 265 integer (265 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 8e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 5 rows and 14 columns
+Presolve time: 0.00s
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 4 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:32:49
+
+Academic license - for non-commercial use only
+Optimize a model with 536 rows, 565 columns and 772 nonzeros
+Model has 840 quadratic constraints
+Variable types: 0 continuous, 565 integer (565 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 5 rows and 14 columns
+Presolve time: 0.00s
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 4 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:32:49
+
+Academic license - for non-commercial use only
+Optimize a model with 1084 rows, 985 columns and 1400 nonzeros
+Model has 1800 quadratic constraints
+Variable types: 0 continuous, 985 integer (985 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 5 rows and 14 columns
+Presolve time: 0.00s
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 4 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:32:50
+
+Academic license - for non-commercial use only
+Optimize a model with 1709 rows, 1125 columns and 2105 nonzeros
+Model has 2900 quadratic constraints
+Variable types: 0 continuous, 1125 integer (1125 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 5 rows and 11 columns
+Presolve time: 0.00s
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 4 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:32:50
+
+Academic license - for non-commercial use only
+Optimize a model with 2851 rows, 2065 columns and 3327 nonzeros
+Model has 4940 quadratic constraints
+Variable types: 0 continuous, 2065 integer (2065 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 3e+01]
+Presolve removed 5 rows and 14 columns
+Presolve time: 0.00s
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 4 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:33:47
+
+Academic license - for non-commercial use only
+Optimize a model with 29973 rows, 31363 columns and 32416 nonzeros
+Model has 30810 quadratic constraints
+Variable types: 0 continuous, 31363 integer (31363 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 6e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 29808 rows and 29650 columns
+Presolve time: 0.06s
+Presolved: 20467 rows, 8097 columns, 46653 nonzeros
+Variable types: 0 continuous, 8097 integer (8097 binary)
+Found heuristic solution: objective 6.0000000
+Found heuristic solution: objective 4.0000000
+
+Root relaxation: infeasible, 0 iterations, 0.00 seconds
+
+Explored 1 nodes (0 simplex iterations) in 0.17 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 2: 4 6 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.000000000000e+00, best bound 4.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:33:53
+
+Academic license - for non-commercial use only
+Optimize a model with 147787 rows, 123793 columns and 153074 nonzeros
+Model has 154050 quadratic constraints
+Variable types: 0 continuous, 123793 integer (123793 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+01]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 79 rows and 166 columns
+Presolve time: 0.05s
+
+Explored 0 nodes (0 simplex iterations) in 0.07 seconds
+Thread count was 1 (of 4 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:01
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:04
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:04
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:04
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:04
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:05
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:05
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:06
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:34:56
+
+Academic license - for non-commercial use only
+Optimize a model with 497 rows, 600 columns and 768 nonzeros
+Model has 528 quadratic constraints
+Variable types: 0 continuous, 600 integer (600 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+02]
+Presolve removed 495 rows and 476 columns
+Presolve time: 0.00s
+Presolved: 134 rows, 129 columns, 163 nonzeros
+Variable types: 0 continuous, 129 integer (129 binary)
+Found heuristic solution: objective 3.0000000
+
+Explored 1 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 4 (of 4 available processors)
+
+Solution count 1: 3 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.000000000000e+00, best bound 3.000000000000e+00, gap 0.0000%
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:35:26
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:36:13
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:37:07
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 06:37:59
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 09:49:24
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:05:11
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:15:23
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:17:16
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:24:10
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:31:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:31:29
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:32:38
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:36:36
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:39:49
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:40:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:40:53
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:41:14
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:41:31
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:42:22
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:44:30
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 10:45:50
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:10:32
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:10:42
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:10:59
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:11:25
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:09
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:09
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:10
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:10
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:11
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:13
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:15
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:18
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:47
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:47
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:48
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:48
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:48
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:49
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:49
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:50
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:51
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:12:53
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:13:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:13:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:13:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:13:09
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:13:09
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:13:09
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:17:27
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:17:53
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:19:14
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:19:46
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:20:20
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:23:56
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:26:35
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:27:03
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:28:02
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:28:55
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:29:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:29:18
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:30:57
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:32:15
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:34:50
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:35:11
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:36:48
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:37:29
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:39:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:39:46
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:40:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:40:34
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:43:29
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:45:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:45:30
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:47:28
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:48:21
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:49:47
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 11:50:14
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:16:11
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:16:57
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:24:53
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:25:56
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:26:11
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:28:37
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:31:06
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 12:31:26
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:13:24
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:14:26
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:17:42
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:19:09
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:19:47
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:22:08
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:22:56
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:24:34
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:26:01
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:26:33
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:26:57
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:27:39
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 13:27:57
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:09:32
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:11:21
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:11:53
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:12:32
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:13:07
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:14:19
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:15:54
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:25:07
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:25:20
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:26:07
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:26:17
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:33:54
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:35:39
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:37:46
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:41:56
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:42:23
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:45:23
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:46:12
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:47:15
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:48:04
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:48:16
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:49:32
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:50:25
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:50:49
+
+Academic license - for non-commercial use only
+
+Gurobi 7.5.2 (win64, Java) logging started 04/24/18 14:52:02
+
+Academic license - for non-commercial use only

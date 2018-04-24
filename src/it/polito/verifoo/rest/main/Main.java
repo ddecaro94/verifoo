@@ -20,9 +20,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 import com.microsoft.z3.Status;
+
+import gurobi.GRB;
+import gurobi.GRBException;
 import it.polito.verifoo.rest.jaxb.*;
 import it.polito.verifoo.rest.medicine.MedicineSimulator;
 import it.polito.verigraph.mcnet.components.IsolationResult;
+import it.polito.verifoo.gurobi.MipSolver;
 import it.polito.verifoo.random.RandomInputGenerator;
 import it.polito.verifoo.rest.common.*;
 /**
@@ -63,11 +67,25 @@ public class Main {
                          m.marshal( root, out ); 
                         
                         // unmarshal a document into a tree of Java content objects*/
-                        NFV root = (NFV) u.unmarshal( new FileInputStream(   "./testfile/nfv5nodes7hostsSAT-FullMeshNoFixedServer.xml" ) );
+                        NFV root = (NFV) u.unmarshal( new FileInputStream(   "./testfile/RAN/sg3nodes12.xml" ) );
                         
                         //root = (NFV) u.unmarshal( new FileInputStream( "./testfile/Random/current.xml" ) );
                         //NFV root = (NFV) u.unmarshal( new FileInputStream( "./testfile/Random/bug1.xml" ) );
-                        VerifooSerializer test = new VerifooSerializer(root);
+                        MipSolver mip = new MipSolver(root);
+        				mip.optimizeIt();
+        				
+        				mip.printThem();
+        				
+
+        				VerifooSerializer test = new VerifooSerializer(root);
+                        Graph temp = root.getGraphs().getGraph().get(0);
+                        System.err.println("VNFs:"+temp.getNode().size()+"   Hosts:"+root.getHosts().getHost().size()+ "   Links:"+root.getConnections().getConnection().size());
+        				
+                        //(System.out::println)
+                        root.getHosts().getHost().forEach(p->{
+                        	p.getNodeRef().forEach(l->System.out.println("PlacementV: "+l.getNode()+"_"+ p.getName()));
+                        });
+                        
                         if(test.isSat()){
                         		System.out.println("SAT");
                         		sat++;
@@ -77,7 +95,7 @@ public class Main {
                                 m = jc.createMarshaller();
                                 m.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE );
                                 m.setProperty( Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION,"./xsd/nfvSchema.xsd");
-                                m.marshal( root, System.out ); 
+                                //m.marshal( root, System.out ); 
                     	}
                     	else{
                     		System.out.println("UNSAT");
@@ -92,7 +110,10 @@ public class Main {
             			//System.out.println("Graph semantically incorrect");
                     	logger.error(e);
                     	if(r == null) exit = true;
-                    }
+                    } catch (GRBException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                 }
             } catch( JAXBException je ) {
             	logger.error("Error while unmarshalling or marshalling");

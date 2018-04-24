@@ -179,13 +179,76 @@ public class NodeNetworkObject extends HashMap<Node, NetworkObject>{
 					this.put(n,fm);
 					break;
 				}
-				case ENDHOST:{
-					if(n.getConfiguration().getEndhost()==null){
-						throw new BadGraphError("You have specified a ENDHOST Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+				case PGW:{
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
 					}
-					PolitoEndHost eh=new PolitoEndHost(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
-					this.put(n,eh);
-					eh.installEndHost(new PacketWrapper(n.getConfiguration().getEndhost(), nctx));
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
+					break;
+				}
+				case SGW:{
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
+					break;
+				}
+				case PHY:{
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
+					break;
+				}
+				case MAC:{	
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
+					break;
+				}
+				case RLC:{
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
+					break;
+				}
+				case PDCP:{
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
+					break;
+				}
+				case SDCP:{
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
+					break;
+				}
+				case MME:{
+					if(n.getConfiguration().getFieldmodifier()==null){
+						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoFieldModifier fm = new PolitoFieldModifier(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					fm.installFieldModifier(Optional.ofNullable(null));
+					this.put(n,fm);
 					break;
 				}
 				case ANTISPAM:{

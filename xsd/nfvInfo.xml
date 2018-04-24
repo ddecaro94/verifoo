@@ -9,7 +9,7 @@
           <webclient nameWebServer="nodeB"/>
         </configuration>
       </node>
-      <node functional_type="FIREWALL" name="node1">
+      <node functional_type="PDCP" name="node1">
         <neighbour name="nodeA"/>
         <neighbour name="node2"/>
         <configuration description="A simple description" name="conf1">

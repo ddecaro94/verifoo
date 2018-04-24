@@ -74,5 +74,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-simple-1.7.25.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/yasson-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/gurobi752/win64/lib/gurobi.jar"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>

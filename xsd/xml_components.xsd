@@ -23,6 +23,15 @@
             <xsd:enumeration value="WEBCLIENT" />
             <xsd:enumeration value="WEBSERVER" />
             <xsd:enumeration value="FIELDMODIFIER" />
+            
+            <xsd:enumeration value="PDCP" />
+            <xsd:enumeration value="SDCP" />
+            <xsd:enumeration value="RLC" />
+            <xsd:enumeration value="MAC" />
+            <xsd:enumeration value="PHY" />
+            <xsd:enumeration value="SGW" />
+            <xsd:enumeration value="PGW" />
+            <xsd:enumeration value="MME" />
         </xsd:restriction>
     </xsd:simpleType>
     <xsd:simpleType name="protocolTypes">

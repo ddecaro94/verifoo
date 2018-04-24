@@ -71,7 +71,11 @@ public class VerifooSerializer {
 	        	if(prop.size() == 0)
 					throw new BadGraphError("No property defined for the Graph "+g.getId(),EType.INVALID_PROPERTY_DEFINITION);
 	        	VerifooProxy test = new VerifooProxy(g, root.getHosts(), root.getConnections(), root.getConstraints(), prop);
+	        	long startTime = System.nanoTime();
 	        	IsolationResult res=test.checkNFFGProperty();
+	        	long endTime   = System.nanoTime();
+	    		long totalTime = endTime - startTime;
+	    		System.err.println("############# Execution time Verifoo: "+totalTime/1000000);
 	        	if(res.result != Status.UNSATISFIABLE){
 	        		new Translator(res.model.toString(),root, g).convert();
 	        		sat = true;
