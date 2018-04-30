@@ -145,6 +145,9 @@ public class RandomTopology {
 					vnfs.add(s);
 				}
 			}
+			SupportedVNFType s = new SupportedVNFType();
+			s.setFunctionalType(FunctionalTypes.FIELDMODIFIER);
+			vnfs.add(s);
 			h.getSupportedVNF().addAll(vnfs);
 			i++;
 			randomHosts.add(h);

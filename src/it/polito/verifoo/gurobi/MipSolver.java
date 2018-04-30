@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import gurobi.GRB;
 import gurobi.GRBEnv;
 import gurobi.GRBException;
+import gurobi.GRBExpr;
 import gurobi.GRBLinExpr;
 import gurobi.GRBModel;
 import gurobi.GRBQuadExpr;
@@ -61,7 +62,6 @@ public class MipSolver {
 	static Map<String, Node> nodeList = new HashMap<>();
 	static List<String> nodeNames;
 
-	static List<Connection> connection;
 	static List<String> hostNames;
 	static String client = "nodeA";
 	static String server = "nodeB";
@@ -83,10 +83,10 @@ public class MipSolver {
 
 	}
 
-	public static void printThem() throws GRBException {
-		model.write("debug.lp");
+	public static int printThem() throws GRBException {
+		//model.write("debug.lp");
 		if (model.get(GRB.IntAttr.Status) == GRB.Status.OPTIMAL) {
-			System.out.println("Obj: " + model.get(GRB.DoubleAttr.ObjVal));
+			//printObjs();
 			hostVars.forEach(p -> {
 				try {
 					if (p.get(GRB.DoubleAttr.X) == 1)
@@ -123,14 +123,41 @@ public class MipSolver {
 			model.dispose();
 			env.dispose();
 		} else {
-			System.out.println("Infeasable");
+			System.out.println("Infeasable"); 
+			return -1;
 		}
+		return 0;
 
+	}
+
+	private static void printObjs() throws GRBException {
+		 int nSolutions = model.get(GRB.IntAttr.SolCount);
+	      System.out.println("Number of solutions found: " + nSolutions);
+
+	      // Print objective values of solutions
+	      if (nSolutions > 10) nSolutions = 10;
+	      System.out.println("Objective values for first " + nSolutions);
+	      System.out.println(" solutions:");
+	      for (int i = 0; i < 2; i++) {
+	        model.set(GRB.IntParam.ObjNumber, i);
+
+	        System.out.print("\tSet" + i);
+	        for (int e = 0; e < nSolutions; e++) {
+	          System.out.print(" ");
+	          model.set(GRB.IntParam.SolutionNumber, e);
+	          double val = model.get(GRB.DoubleAttr.ObjNVal);
+	          System.out.print("      " + val);
+	        }
+	        System.out.println();
+	      }
 	}
 
 	static List<BandwidthMetrics> latencyConstraint;
 
 	public MipSolver(NFV root) throws GRBException {
+		
+		
+		
 		env = new GRBEnv("mip1.log");
 		model = new GRBModel(env);
 		// model.set(GRB.IntParam.OutputFlag, 0);
@@ -142,6 +169,13 @@ public class MipSolver {
 			return p.getName();
 		}).collect(Collectors.toList());
 
+		
+		/*List<Node>  all= new ArrayList<>(); 
+		getOrderedNodes(root.getGraphs().getGraph().get(0).getNode().get(0),all);
+		//nodeList = all.stream().collect(Collectors.toMap(x -> x.getName(), x -> x));
+		
+		nodeNames = all.stream().map(p->p.getName()).collect(Collectors.toList());*/
+		
 		hostNames = root.getHosts().getHost().stream().map(p -> {
 			hostList.put(p.getName(), p);
 			if (p.getType().compareTo(TypeOfHost.CLIENT) == 0) {
@@ -156,9 +190,27 @@ public class MipSolver {
 		}).collect(Collectors.toList());
 
 		edge = root.getConnections().getConnection();
-
+		
 		generateVars();
 		constraints();
+	}
+
+	private void getOrderedNodes(Node node, List<Node> all) {
+		all.add(node);
+		if(all.size()>100) {
+			System.out.println("to many:"+node.getName());
+			return;
+		}
+		if(!node.getNeighbour().isEmpty()){
+			if(node.getNeighbour().size()==2 && nodeList.values().size()-all.size()+1!=2){
+				getOrderedNodes(nodeList.get(node.getNeighbour().get(1).getName()), all);
+				return;
+			}else if(nodeList.values().size()-all.size()!=0){
+				getOrderedNodes(nodeList.get(node.getNeighbour().get(0).getName()), all);
+				return;
+			}
+		}
+		return;
 	}
 
 	private void constraints() throws GRBException {
@@ -220,7 +272,7 @@ public class MipSolver {
 				e.printStackTrace();
 			}
 		});
-		model.setObjective(obj, GRB.MINIMIZE);
+		/*###############################################*/model.setObjectiveN(obj, 1, 1, 1, 1, 1, "firstO");
 
 		// at least one m to be true
 		// System.out.println("Only one placement");
@@ -245,8 +297,7 @@ public class MipSolver {
 					if (!string1n.host.equals(string2n.host)) {
 						GRBVar temp = model.addVar(0, 1, 0, GRB.BINARY,
 								string1n.vnf + string1n.host + string2n.vnf + string2n.host);
-						// System.out.println("EDGEyes:" + string1n.vnf +
-						// string1n.host + string2n.vnf + string2n.host);
+						// System.out.println("EDGEyes:" + string1n.vnf + string1n.host + string2n.vnf + string2n.host);
 						edgeM.add(new Edge(string1n.host, string2n.host, string1n.vnf, string2n.vnf, temp));
 					}
 				}
@@ -267,6 +318,7 @@ public class MipSolver {
 		for (Edge edgesVar : edgeM) {
 			boolean hush = edge.stream().anyMatch(p -> p.getSourceHost().equals(edgesVar.startN) && p.getDestHost().equals(edgesVar.endN));
 			if (!hush) {
+				//System.out.println("edge is zero:"+edgesVar.startN+"_"+edgesVar.endN);
 				GRBLinExpr zero = new GRBLinExpr();
 				zero.addTerm(1, edgesVar.var);
 				model.addConstr(zero, GRB.EQUAL, 0, "edges");
@@ -282,11 +334,24 @@ public class MipSolver {
 							if(hush==null) continue;
 						    latReq.addTerm(hush.getAvgLatency(), temp.var);
 							model.addConstr(latReq, GRB.LESS_EQUAL, constr.getReqLatency(), "--------latReq");
-							System.out.println("found");
 					}
 				}
 		}
 
+	}
+	
+	public void latencyObj() throws GRBException{
+		GRBLinExpr obj = new GRBLinExpr();
+		for (Connection connection : edge) {
+			List<Edge> list = edgeM.stream().filter(p->p.startN.equals(connection.getSourceHost())&&p.endN.equals(connection.getDestHost())).collect(Collectors.toList());
+			list.forEach(p->{
+				//System.out.println("adding term for:"+p.startN+"_"+p.endN+" lat:"+connection.getAvgLatency()+ " of "+connection.getSourceHost()+"_"+connection.getDestHost());
+				obj.addTerm(connection.getAvgLatency(), p.var);
+			});
+		}
+		//model.setObjective(obj, GRB.MINIMIZE);
+		/*###############################################*/model.setObjectiveN(obj, 2, 10, 1, 1, 1, "secondO");
+		//more of third integer is better
 	}
 
 	private void generateVars() throws GRBException {

@@ -45,8 +45,8 @@
         </configuration>
       </node>
        <node functional_type="PGW" name="PGW">
-        <neighbour name="SGW"/>
         <neighbour name="END"/>
+        <neighbour name="SGW"/>
         <configuration description="A simple description" name="conf7">
          <fieldmodifier>
           	<name>name</name>

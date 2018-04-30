@@ -169,6 +169,7 @@ public class NodeNetworkObject extends HashMap<Node, NetworkObject>{
 					this.put(n, fw);
 					break;
 				}
+				
 				case FIELDMODIFIER:{	
 					if(n.getConfiguration().getFieldmodifier()==null){
 						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
@@ -206,6 +207,7 @@ public class NodeNetworkObject extends HashMap<Node, NetworkObject>{
 					this.put(n,fm);
 					break;
 				}
+				
 				case MAC:{	
 					if(n.getConfiguration().getFieldmodifier()==null){
 						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
@@ -382,6 +384,16 @@ public class NodeNetworkObject extends HashMap<Node, NetworkObject>{
 					PacketModel p = new PacketModel();
 					this.put(n,eh);
 					eh.installAsWebClient(nctx.am.get(n.getConfiguration().getWebclient().getNameWebServer()), p);
+					break;
+				}
+				case ENDHOST:{
+					if(n.getConfiguration().getEndhost()==null){
+						throw new BadGraphError("You have specified a ENDHOST Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
+					}
+					PolitoEndHost eh=new PolitoEndHost(ctx,new Object[]{nctx.nm.get(n.getName()),net,nctx});
+					this.put(n,eh);
+					PacketWrapper p = new PacketWrapper(n.getConfiguration().getEndhost(), nctx);
+					eh.installEndHost(p);
 					break;
 				}
 				case WEBSERVER:{

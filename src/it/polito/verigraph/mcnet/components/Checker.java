@@ -124,8 +124,8 @@ public class Checker {
 		for (Entry<String, Handle> handle : nctx.handles.entrySet()) {
 			temp = handle.getValue();
 		}
-		if(temp!=null) System.out.println(nctx.latencyAll-Integer.parseInt(temp.getValue()+""));
-		if(temp!=null) System.out.println("Weight of falsified constraints:"+temp.getValue());
+		/*if(temp!=null) System.out.println(nctx.latencyAll-Integer.parseInt(temp.getValue()+""));
+		if(temp!=null) System.out.println("Weight of falsified constraints:"+temp.getValue());*/
 		model = null;
 		// assertions = this.solver.getAssertions();
 		// assertions = new BoolExpr [1] ;
@@ -178,7 +178,7 @@ public class Checker {
 		for (Entry<String, Handle> handle : nctx.handles.entrySet()) {
 			temp = handle.getValue();
 		}
-		if (temp!=null)System.out.println(temp.getValue());
+//		/if (temp!=null)System.out.println(temp.getValue());
 		
 		model = null;
 		// assertions = this.solver.getAssertions();
@@ -250,7 +250,7 @@ public class Checker {
 		for (Entry<String, Handle> handle : nctx.handles.entrySet()) {
 			temp = handle.getValue();
 		}
-		//if (temp!=null)System.out.println(temp.getValue());
+		if (temp!=null) System.out.println(nctx.latencyAll+Integer.parseInt(temp.getValue()+""));
 		
 		model = null;
 		assertions = null;
@@ -266,8 +266,9 @@ public class Checker {
 		if(autoctx != null){
 			autoctx.addConstraints(solver);
 		}
-		net.addConstraints(solver);
 		nctx.addConstraints(solver);
+		net.addConstraints(solver);
+		
 		for (NetworkObject el : net.elements)
 			el.addConstraints(solver);
 		for (BoolExpr boolExpr : constraintList) {

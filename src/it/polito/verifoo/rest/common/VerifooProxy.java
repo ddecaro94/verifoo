@@ -15,6 +15,7 @@ import com.microsoft.z3.IntExpr;
 import com.microsoft.z3.Context;
 import com.microsoft.z3.DatatypeExpr;
 import com.microsoft.z3.Status;
+import com.microsoft.z3.Optimize.Handle;
 
 import it.polito.verifoo.components.RoutingTable;
 import it.polito.verifoo.rest.jaxb.*;
@@ -726,8 +727,10 @@ public class VerifooProxy {
 		    }else{
 		    	 	logger.debug("SAT ");
 		     		logger.debug( ""+ret.model); //p.printModel(ret.model);
-		     		
 		    }
+			
+			
+			
 			return ret;
 		}
 		/**

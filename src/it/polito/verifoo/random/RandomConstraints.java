@@ -24,7 +24,7 @@ public class RandomConstraints {
 	
 	private void createNodeConstraints(RandomGraph g) {
 		for(Node n : g.getMiddle()){
-			if(random.nextBoolean())
+			if(true)
 				nodeConstraints.getNodeMetrics().add(randomNodeMetrics(n));
 		}
 	}
@@ -44,15 +44,15 @@ public class RandomConstraints {
 		NodeMetrics m = new NodeMetrics();
 		m.setNode(n.getName());
 		if(random.nextBoolean())
-			m.setCores(random.nextInt(2)+1);
+			//m.setCores(random.nextInt(2)+1);
 		if(random.nextBoolean()){
-			m.setNrOfOperations((long) (random.nextInt(100000)+1000));
-			m.setMaxNodeLatency(random.nextInt(1000)+10);
+			//m.setNrOfOperations((long) (random.nextInt(100000)+1000));
+			//m.setMaxNodeLatency(random.nextInt(1000)+10);
 		}
-		if(random.nextBoolean())
+		if(true)
 			m.setReqStorage(random.nextInt(200)+1);
-		if(random.nextBoolean())
-			m.setMemory(random.nextInt(64)+1);
+		//if(random.nextBoolean())
+			//m.setMemory(random.nextInt(64)+1);
 		return m;
 	}
 	
