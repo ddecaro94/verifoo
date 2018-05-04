@@ -39,9 +39,10 @@ public class RandomGraph {
 	 * @param maxServers max number of servers in the service graph
 	 * @param maxInternalNodes max number of internal nodes in the service graph
 	 * @param maxProperty max number of property that will be checked
+	 * @param isRAN 
 	 */
-	public RandomGraph(Random random, int maxClients, int maxServers, int maxInternalNodes, int maxProperty) {
-		RandomGenerator randG = new RandomGenerator(maxClients, maxServers, maxInternalNodes);
+	public RandomGraph(Random random, int maxClients, int maxServers, int maxInternalNodes, int maxProperty, boolean isRAN) {
+		RandomGenerator randG = new RandomGenerator(maxClients, maxServers, maxInternalNodes,isRAN);
 		graph = randG.getTranslatedGraph();
 		for(Node node : graph.getNode()){
 			Configuration conf = createConfiguration(node, random.nextBoolean());
@@ -151,6 +152,61 @@ public class RandomGraph {
 	        break;
 	    case "FIELDMODIFIER":
 	    	Fieldmodifier f = new Fieldmodifier();
+	    	f.setName("name");
+	        /*if(!nextBoolean){
+	            //conf_node.put("url", "www.facebook.com");
+	            conf_node.put("body", "weapon");
+	            conf_node.put("email_from", "spam@polito.it");
+	            conf_array.add(conf_node);
+	        }*/
+	    	conf.setFieldmodifier(f);
+	        break;
+	    case "MAC":
+	    	 f = new Fieldmodifier();
+	    	f.setName("name");
+	        /*if(!nextBoolean){
+	            //conf_node.put("url", "www.facebook.com");
+	            conf_node.put("body", "weapon");
+	            conf_node.put("email_from", "spam@polito.it");
+	            conf_array.add(conf_node);
+	        }*/
+	    	conf.setFieldmodifier(f);
+	        break;
+	    case "PDCP":
+	    	 f = new Fieldmodifier();
+	    	f.setName("name");
+	        /*if(!nextBoolean){
+	            //conf_node.put("url", "www.facebook.com");
+	            conf_node.put("body", "weapon");
+	            conf_node.put("email_from", "spam@polito.it");
+	            conf_array.add(conf_node);
+	        }*/
+	    	conf.setFieldmodifier(f);
+	        break;
+	    case "SGW":
+	    	 f = new Fieldmodifier();
+	    	f.setName("name");
+	        /*if(!nextBoolean){
+	            //conf_node.put("url", "www.facebook.com");
+	            conf_node.put("body", "weapon");
+	            conf_node.put("email_from", "spam@polito.it");
+	            conf_array.add(conf_node);
+	        }*/
+	    	conf.setFieldmodifier(f);
+	        break;
+	    case "PGW":
+	    	 f = new Fieldmodifier();
+	    	f.setName("name");
+	        /*if(!nextBoolean){
+	            //conf_node.put("url", "www.facebook.com");
+	            conf_node.put("body", "weapon");
+	            conf_node.put("email_from", "spam@polito.it");
+	            conf_array.add(conf_node);
+	        }*/
+	    	conf.setFieldmodifier(f);
+	        break;
+	    case "RLC":
+	    	 f = new Fieldmodifier();
 	    	f.setName("name");
 	        /*if(!nextBoolean){
 	            //conf_node.put("url", "www.facebook.com");

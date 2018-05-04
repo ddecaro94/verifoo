@@ -32,7 +32,7 @@ public class RandomGenerator {
     it.polito.verifoo.rest.jaxb.Graph translatedGraph;
     public RandomGenerator() {
         long seed=new Date().getTime();
-        init(seed,4,4,10);
+        init(seed,4,4,10,true);
         ObjectMapper mapper = new ObjectMapper();
         Graph g = this.getGraphs().stream().findFirst().get();
     	//this.pringGraph(g);
@@ -55,9 +55,9 @@ public class RandomGenerator {
 
     }
 
-    public RandomGenerator(int maxClients, int maxServers, int maxInternalNodes) {
+    public RandomGenerator(int maxClients, int maxServers, int maxInternalNodes, boolean isRan) {
     	long seed=new Date().getTime();
-        init(seed, maxClients, maxServers, maxInternalNodes);
+        init(seed, maxClients, maxServers, maxInternalNodes,isRan);
         ObjectMapper mapper = new ObjectMapper();
         Graph g = this.getGraphs().stream().findFirst().get();
     	//this.pringGraph(g);
@@ -83,7 +83,7 @@ public class RandomGenerator {
 		return translatedGraph;
 	}
 
-	private void init(long seed, int maxClients, int maxServers, int maxInternalNodes) {
+	private void init(long seed, int maxClients, int maxServers, int maxInternalNodes, boolean isRan) {
         //System.out.println("Random Graph Generator: Using seed: " + seed);
 
         // initialize random generator and start time
@@ -96,7 +96,7 @@ public class RandomGenerator {
         int numGraphs = random.nextInt(1)+1; // at least 1 graph
         for (int i=0; i<numGraphs; i++) {
             // create single graph
-            GraphGen graph = new GraphGen(random,i, maxClients, maxServers, maxInternalNodes);
+            GraphGen graph = new GraphGen(random,i, maxClients, maxServers, maxInternalNodes,isRan);
             // and add it to hash map
             graphs.put("Graph"+graph.getId(), graph);
 

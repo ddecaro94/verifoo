@@ -7,7 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.sound.sampled.AudioFormat;
@@ -69,20 +71,24 @@ public class Main {
 						 m = jc.createMarshaller();
 						m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 						m.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "./xsd/nfvSchema.xsd");
-						int maxClients = 1, maxServers = 1, maxInternalNodes = 18, maxProperty = 1, maxHosts = 50;
-						r = new RandomInputGenerator(maxClients, maxServers, maxInternalNodes, maxProperty, maxHosts);
+						int maxClients = 1, maxServers = 1, maxInternalNodes = 10, maxProperty = 1, maxHosts = 25;
+						boolean isRAN=true;
+						r = new RandomInputGenerator(maxClients, maxServers, maxInternalNodes, maxProperty, maxHosts,isRAN);
 						 root = r.getRandomInput();
 						 Graph temp = root.getGraphs().getGraph().get(0);
 							System.err.println("VNFs:" + temp.getNode().size() + "   Hosts:" + root.getHosts().getHost().size()
 									+ "   Links:" + root.getConnections().getConnection().size());
 
-							
+						//if(root.getGraphs().getGraph().get(0).getNode().size()!=7) continue;
+						//if(root.getHosts().getHost().size()!=24) continue;
+						if(root.getConnections().getConnection().size()>1000) continue;
 						MipSolver mip = new MipSolver(root);
 						mip.latencyObj();
 						mip.optimizeIt();
-
+						OutputStream out = new FileOutputStream("./testfile/Random/current.xml");
+						m.marshal(root, out);
 						if (mip.printThem() == -1) {
-							continue;
+							return;
 						} else {
 							//mip.printThem();
 						}
@@ -93,36 +99,27 @@ public class Main {
 
 						// unmarshal a document into a tree of Java content
 						// objects
-						 root = (NFV) u.unmarshal(new FileInputStream("./testfile/Performance/bgUNIV1_3Nodes.xml"));
+						 root = (NFV) u.unmarshal(new FileInputStream("./testfile/Random/current.xml"));
 						 Graph temp = root.getGraphs().getGraph().get(0);
 							System.err.println("VNFs:" + temp.getNode().size() + "   Hosts:" + root.getHosts().getHost().size()
 									+ "   Links:" + root.getConnections().getConnection().size());
 
-						// NFV root = (NFV) u.unmarshal( new FileInputStream(
-						// "./testfile/RAN/sg3nodes12.xml" ) );
-
-						// root = (NFV) u.unmarshal( new FileInputStream(
-						// "./testfile/Random/current.xml" ) );
-						// NFV root = (NFV) u.unmarshal( new FileInputStream(
-						// "./testfile/Random/bug1.xml" ) );
+				
 						MipSolver mip = new MipSolver(root);
 						mip.latencyObj();
 						mip.optimizeIt();
 						mip.printThem();
+						
 					}
 					//OutputStream out = new FileOutputStream("./testfile/Performance/bgAS.xml");
 					//m.marshal(root, out);
 					System.out.println("-------------");
 					VerifooSerializer test = new VerifooSerializer(root);
 					
-					// (System.out::println)
-					root.getHosts().getHost().forEach(p -> {
-						p.getNodeRef()
-								.forEach(l -> System.out.println("PlacementV: " + l.getNode() + "_" + p.getName()));
-					});
+					printVerifoo(root);
 
 					if (test.isSat()) {
-						sound();
+						//sound();
 						System.out.println("SAT");
 						sat++;
 						if (sat > 0)
@@ -137,6 +134,7 @@ public class Main {
 						if (r == null)
 							exit = true;
 					}
+					
 					// MedicineSimulator sim = new MedicineSimulator(root);
 					// sim.printAll();
 					// m.marshal( sim.getPhysicalTopology(), System.out );
@@ -168,6 +166,18 @@ public class Main {
 			logger.error(e);
 			System.exit(1);
 		}
+	}
+
+	private static void printVerifoo(NFV root) {
+		// (System.out::println)
+		Set<Host> hostsSet = new HashSet<>();
+		root.getHosts().getHost().forEach(p -> {
+			if(!p.getNodeRef().isEmpty()) hostsSet.add(p);
+			p.getNodeRef()
+					.forEach(l -> System.out.println("PlacementV: " + l.getNode() + "_" + p.getName()));
+		});
+		System.out.println("Hosts: "+(hostsSet.size()-1));
+		
 	}
 
 	private static void sound() {

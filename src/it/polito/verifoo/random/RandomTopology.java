@@ -139,11 +139,9 @@ public class RandomTopology {
 			h.setName("host"+i);
 			List<SupportedVNFType> vnfs = new ArrayList<>();
 			for(FunctionalTypes vnf : FunctionalTypes.values()){
-				if(random.nextBoolean()){
 					SupportedVNFType s = new SupportedVNFType();
 					s.setFunctionalType(vnf);
 					vnfs.add(s);
-				}
 			}
 			SupportedVNFType s = new SupportedVNFType();
 			s.setFunctionalType(FunctionalTypes.FIELDMODIFIER);
@@ -159,7 +157,7 @@ public class RandomTopology {
 		Host h = new Host();
 		h.setCores(random.nextInt(8)+1);
 		h.setCpu(random.nextInt(2)+1);
-		h.setDiskStorage(random.nextInt(200)+1);
+		h.setDiskStorage(random.nextInt(300)+1);
 		h.setMaxVNF(random.nextInt(10)+1);
 		h.setMemory(random.nextInt(64)+1);
 		return h;

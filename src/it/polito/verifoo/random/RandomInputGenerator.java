@@ -23,9 +23,10 @@ public class RandomInputGenerator {
 	 * @param maxInternalNodes
 	 * @param maxProperty
 	 * @param maxHosts
+	 * @param isRAN 
 	 */
-    public RandomInputGenerator(int maxClients, int maxServers, int maxInternalNodes, int maxProperty, int maxHosts) {
-    	RandomGraph serviceGraph = new RandomGraph(random, maxClients, maxServers, maxInternalNodes, maxProperty);
+    public RandomInputGenerator(int maxClients, int maxServers, int maxInternalNodes, int maxProperty, int maxHosts, boolean isRAN) {
+    	RandomGraph serviceGraph = new RandomGraph(random, maxClients, maxServers, maxInternalNodes, maxProperty,isRAN);
     	graphs.getGraph().add(serviceGraph.getGraph());
     	properties = serviceGraph.getProperties();
     	RandomConstraints randConstraints = new RandomConstraints(random, serviceGraph);

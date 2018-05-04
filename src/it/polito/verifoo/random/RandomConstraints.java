@@ -1,5 +1,7 @@
 package it.polito.verifoo.random;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -30,11 +32,17 @@ public class RandomConstraints {
 	}
 
 	private void createBandwithConstraints(RandomGraph g) {
+		Map<Node,Node> set = new HashMap<>();
 		for(Node src : g.getMiddle()){
 			for(Node dst : g.getMiddle()){
 				if(src.getNeighbour().stream().map(nei -> nei.getName()).collect(Collectors.toList()).contains(dst.getName())){
-					if(random.nextBoolean())
-						bandwidthConstraints.getBandwidthMetrics().add(randomBandwidthMetrics(src,dst));
+					if(random.nextBoolean()){
+						if(set.containsKey(src)) if(set.get(src).equals(dst)) continue;
+							bandwidthConstraints.getBandwidthMetrics().add(randomBandwidthMetrics(src,dst));
+							set.put(dst,src);	
+						
+					}
+						
 				}
 			}
 		}

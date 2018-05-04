@@ -719,7 +719,6 @@ public class VerifooProxy {
 			IsolationResult ret = this.check.propertyCheck();
 			nrOfConditions = (int) conditionDB.entrySet().stream().flatMap(e -> e.getValue().values().stream()).count();
 			logger.debug("Nr of Conditions: " + nrOfConditions);
-			System.out.println("Nr of Conditions: " + nrOfConditions);
 			if(nrOfConditions == 0) ret.result = Status.UNSATISFIABLE;
 			if (ret.result == Status.UNSATISFIABLE){
 				 	logger.debug("UNSAT"); // Nodes a and b are isolated

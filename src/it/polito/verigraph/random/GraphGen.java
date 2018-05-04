@@ -26,9 +26,12 @@ class GraphGen extends Graph {
 
 	private FunctionalTypes clientTypes[] = { FunctionalTypes.ENDHOST };
 	private FunctionalTypes serverTypes[] = { FunctionalTypes.MAILSERVER, FunctionalTypes.WEBSERVER };
-	private FunctionalTypes middleTypes[] = { FunctionalTypes.FIELDMODIFIER};
+	private FunctionalTypes middleTypes[] = { FunctionalTypes.FIELDMODIFIER };
+	private FunctionalTypes middleTypesRAN[] = { FunctionalTypes.MAC,FunctionalTypes.RLC,FunctionalTypes.PDCP, FunctionalTypes.SGW,FunctionalTypes.PGW };
 
 	private PolicyGen.PolicyType types[] = { PolicyType.REACHABILITY, PolicyType.ISOLATION };
+
+	private boolean isRAN;
 
 	private static int count = 0;
 
@@ -56,14 +59,15 @@ class GraphGen extends Graph {
 
 	}
 
-	public GraphGen(Random random, int i, int maxClients, int maxServers, int maxInternalNodes) {
+	public GraphGen(Random random, int i, int maxClients, int maxServers, int maxInternalNodes, boolean isRan) {
 		super(count);
 		count++;
-
+		this.isRAN = isRan;
 		// create policies hash map
 		policies = new HashMap<String, PolicyGen>();
 
 		// create nodes
+
 		clientNodes = createNodeSubset(clientTypes, random, maxClients);
 		serverNodes = createNodeSubset(serverTypes, random, maxServers);
 		middleNodes = createNodeSubset2(middleTypes, random, maxInternalNodes);
@@ -88,7 +92,7 @@ class GraphGen extends Graph {
 	 *            the maximum number of new nodes to be created
 	 * @return an array including all the new nodes created
 	 */
-	
+
 	private Node[] createNodeSubset(FunctionalTypes types[], Random random, int maxNum) {
 
 		if (types == null || types.length == 0)
@@ -146,40 +150,50 @@ class GraphGen extends Graph {
 		int existingnode = nodes.size();
 		Vector<Node> nodeSubset = new Vector<Node>();
 
-		for (int i = 0; i < numNodes; i++) {
-			// create and store single node
-			FunctionalTypes type;
-			if (types.length == 1 || numNodes == 1)
-				type = types[0];
-			else
-				type = chooseType(types, random);
-			String name = (type.toString().replace("_", "")) + i;
-
-			// Configuration conf = createConfiguration(name,type.toString(),
-			// random.nextBoolean()); //TODO
-			nodeSubset.add(i, new Node(existingnode + i, name, type.toString(), null)); // No
-																						// configuration
-																						// yet
-			nodes.put(nodeSubset.get(i).getId(), nodeSubset.get(i));
-
-			if (type == FunctionalTypes.VPNACCESS) {
-				i++;
-				name = (FunctionalTypes.VPNEXIT.toString().replace("_", "")) + i;
-				// conf= createConfiguration(name,
-				// FunctionalTypes.VPNEXIT.toString(), true);
-				nodeSubset.add(i, new Node(i, name, FunctionalTypes.VPNEXIT.toString(), null));
+		if (isRAN) {
+			for (int i = 0; i < 5; i++) {
+				FunctionalTypes type=middleTypesRAN[i];
+				String name = (middleTypesRAN[i].toString().replace("_", "")) + i;
+				nodeSubset.add(i, new Node(existingnode + i, name, type.toString(), null)); 
 				nodes.put(nodeSubset.get(i).getId(), nodeSubset.get(i));
-				// numNodes -=1;
-			} else if (type == FunctionalTypes.VPNEXIT) {
-				i++;
-				name = (FunctionalTypes.VPNACCESS.toString().replace("_", "")) + i;
-				// conf= createConfiguration(name,
-				// FunctionalTypes.VPNACCESS.toString(), true);
-				nodeSubset.add(i, new Node(i, name, FunctionalTypes.VPNACCESS.toString(), null));
-				nodes.put(nodeSubset.get(i).getId(), nodeSubset.get(i));
-				numNodes -= 1;
 			}
+		} else {
+			for (int i = 0; i < numNodes; i++) {
+				// create and store single node
+				FunctionalTypes type;
+				if (types.length == 1 || numNodes == 1)
+					type = types[0];
+				else
+					type = chooseType(types, random);
+				String name = (type.toString().replace("_", "")) + i;
 
+				// Configuration conf =
+				// createConfiguration(name,type.toString(),
+				// random.nextBoolean()); //TODO
+				nodeSubset.add(i, new Node(existingnode + i, name, type.toString(), null)); // No
+																							// configuration
+																							// yet
+				nodes.put(nodeSubset.get(i).getId(), nodeSubset.get(i));
+
+				if (type == FunctionalTypes.VPNACCESS) {
+					i++;
+					name = (FunctionalTypes.VPNEXIT.toString().replace("_", "")) + i;
+					// conf= createConfiguration(name,
+					// FunctionalTypes.VPNEXIT.toString(), true);
+					nodeSubset.add(i, new Node(i, name, FunctionalTypes.VPNEXIT.toString(), null));
+					nodes.put(nodeSubset.get(i).getId(), nodeSubset.get(i));
+					// numNodes -=1;
+				} else if (type == FunctionalTypes.VPNEXIT) {
+					i++;
+					name = (FunctionalTypes.VPNACCESS.toString().replace("_", "")) + i;
+					// conf= createConfiguration(name,
+					// FunctionalTypes.VPNACCESS.toString(), true);
+					nodeSubset.add(i, new Node(i, name, FunctionalTypes.VPNACCESS.toString(), null));
+					nodes.put(nodeSubset.get(i).getId(), nodeSubset.get(i));
+					numNodes -= 1;
+				}
+
+			}
 		}
 		Node[] nodes = new Node[nodeSubset.size()];
 		return nodeSubset.toArray(nodes);
@@ -343,18 +357,17 @@ class GraphGen extends Graph {
 
 				node = new Neighbour(middleNodes[1].getId(), middleNodes[1].getName());
 				neighbourfromnode.put(middleNodes[1].getId(), node);
-				
+
 				node = new Neighbour(clientNodes[h].getId(), clientNodes[h].getName());
 				neighbourfromnode.put(clientNodes[h].getId(), node);
-				
+
 			} else if (i == middleNodes.length - 1) {
 				int k = random.nextInt(serverNodes.length);
-				
 
 				node = new Neighbour(middleNodes[middleNodes.length - 2].getId(),
 						middleNodes[middleNodes.length - 2].getName());
 				neighbourfromnode.put(middleNodes[middleNodes.length - 1].getId(), node);
-				
+
 				node = new Neighbour(serverNodes[k].getId(), serverNodes[k].getName());
 				neighbourfromnode.put(serverNodes[k].getId(), node);
 			} else {

@@ -178,7 +178,7 @@ public class Checker {
 		for (Entry<String, Handle> handle : nctx.handles.entrySet()) {
 			temp = handle.getValue();
 		}
-//		/if (temp!=null)System.out.println(temp.getValue());
+		if (temp!=null)System.out.println("Latency: "+(nctx.latencyAll-temp.getValue().getNumArgs()));
 		
 		model = null;
 		// assertions = this.solver.getAssertions();
@@ -250,7 +250,10 @@ public class Checker {
 		for (Entry<String, Handle> handle : nctx.handles.entrySet()) {
 			temp = handle.getValue();
 		}
-		if (temp!=null) System.out.println(nctx.latencyAll+Integer.parseInt(temp.getValue()+""));
+		if (temp!=null) {
+			int hi=(nctx.latencyAll+Integer.parseInt(temp.getValue()+""));
+			System.out.println("Latency: "+hi);
+		}
 		
 		model = null;
 		assertions = null;

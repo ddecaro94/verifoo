@@ -156,7 +156,8 @@ public class NetContext extends Core{
         //System.out.println("Soft Constraints");
         for (Tuple<BoolExpr, String> t : softConstraints) {
         	//System.out.println(t._1 + "\n with value " + 10 + ". Node is " + t._2);
-			solver.AssertSoft(t._1, 10, t._2);
+			solver.AssertSoft(t._1, 1, t._2);
+			//less negative gives priority to latency
 		}
         
     }
