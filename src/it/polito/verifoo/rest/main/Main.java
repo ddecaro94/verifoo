@@ -62,7 +62,7 @@ public class Main {
 			boolean exit = false;
 			int sat = 0;
 
-			int isRandom =1;
+			int isRandom =2;
 			NFV root = null;
 			Marshaller m =null;
 			while (!exit) {
@@ -99,7 +99,7 @@ public class Main {
 
 						// unmarshal a document into a tree of Java content
 						// objects
-						 root = (NFV) u.unmarshal(new FileInputStream("./testfile/Random/current.xml"));
+						 root = (NFV) u.unmarshal(new FileInputStream("./testfile/RAN/sg3nodes12.xml"));
 						 Graph temp = root.getGraphs().getGraph().get(0);
 							System.err.println("VNFs:" + temp.getNode().size() + "   Hosts:" + root.getHosts().getHost().size()
 									+ "   Links:" + root.getConnections().getConnection().size());

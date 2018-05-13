@@ -3,13 +3,22 @@
   <graphs>
     <graph id="0">
      <node functional_type="WEBCLIENT" name="NR1">
-        <neighbour name="MAC1"/>
+        <neighbour name="PHY1"/>
          <configuration description="A simple description" name="confA">
           <webclient nameWebServer="END"/>
         </configuration>
       </node>
-      <node functional_type="MAC" name="MAC1">
+      <node functional_type="PHY" name="PHY1">
         <neighbour name="NR1"/>
+        <neighbour name="MAC1"/>
+        <configuration description="A simple description" name="conf5">
+         <fieldmodifier>
+          	<name>name</name>
+         </fieldmodifier>
+        </configuration>
+      </node>
+      <node functional_type="MAC" name="MAC1">
+        <neighbour name="PHY1"/>
         <neighbour name="RLC1"/>
         <configuration description="A simple description" name="conf5">
          <fieldmodifier>
@@ -65,6 +74,7 @@
   </graphs>
   <Constraints>
 	  <NodeConstraints>
+	  		<NodeMetrics node="PHY1" reqStorage="10" />
 			<NodeMetrics node="MAC1" reqStorage="10" />
 			<NodeMetrics node="RLC1"  reqStorage="10" />
 			<NodeMetrics node="PDCP" reqStorage="10" />
@@ -87,39 +97,229 @@
   	<Host name="hostA" cpu="2" cores="2" memory="4" diskStorage="10" type="CLIENT" fixedEndpoint="NR1"/>
   	<Host name="hostC" cpu="2" cores="2" memory="4" diskStorage="10" type="SERVER" fixedEndpoint="END"/>
   	<Host name="host1" cpu="20" cores="20" memory="160" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-		<SupportedVNF functional_type="MAC"/>
-		<SupportedVNF functional_type="RLC"/>
+		 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
   	<Host name="host2" cpu="20" cores="20" memory="160" diskStorage="1" maxVNF="10" type="MIDDLEBOX">
-			<SupportedVNF functional_type="MAC"/>
-		<SupportedVNF functional_type="RLC"/>
+			 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
   	<Host name="host3" cpu="10" cores="60" memory="160" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-	    	<SupportedVNF functional_type="PDCP"/>
+	    	 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
 	<Host name="host4" cpu="10" cores="60" memory="160" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-		<SupportedVNF functional_type="RLC"/>
-	    	<SupportedVNF functional_type="PDCP"/>
+		 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
 	<Host name="host5" cpu="10" cores="60" memory="160" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-		<SupportedVNF functional_type="RLC"/>
-	    	<SupportedVNF functional_type="PDCP"/>
+		 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
 	<Host name="host6" cpu="10" cores="60" memory="160" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-		<SupportedVNF functional_type="RLC"/>
-	    	<SupportedVNF functional_type="PDCP"/>
+		 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
 	<Host name="host7" cpu="10" cores="1000" memory="400" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-			<SupportedVNF functional_type="SGW"/>
-	    	<SupportedVNF functional_type="PGW"/>
+			 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
 	<Host name="host8" cpu="10" cores="1000" memory="400" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-		<SupportedVNF functional_type="SGW"/>
-	    	<SupportedVNF functional_type="PGW"/>
+		 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
 	<Host name="host9" cpu="10" cores="1000" memory="400" diskStorage="50" maxVNF="10" type="MIDDLEBOX">
-		<SupportedVNF functional_type="SGW"/>
-	    	<SupportedVNF functional_type="PGW"/>
+		 <SupportedVNF functional_type="FIREWALL"/>
+            <SupportedVNF functional_type="ENDHOST"/>
+            <SupportedVNF functional_type="ENDPOINT"/>
+            <SupportedVNF functional_type="ANTISPAM"/>
+            <SupportedVNF functional_type="CACHE"/>
+            <SupportedVNF functional_type="DPI"/>
+            <SupportedVNF functional_type="MAILCLIENT"/>
+            <SupportedVNF functional_type="MAILSERVER"/>
+            <SupportedVNF functional_type="NAT"/>
+            <SupportedVNF functional_type="VPNACCESS"/>
+            <SupportedVNF functional_type="VPNEXIT"/>
+            <SupportedVNF functional_type="WEBCLIENT"/>
+            <SupportedVNF functional_type="WEBSERVER"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
+            <SupportedVNF functional_type="PDCP"/>
+            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="RLC"/>
+            <SupportedVNF functional_type="MAC"/>
+            <SupportedVNF functional_type="PHY"/>
+            <SupportedVNF functional_type="SGW"/>
+            <SupportedVNF functional_type="PGW"/>
+            <SupportedVNF functional_type="MME"/>
+            <SupportedVNF functional_type="FIELDMODIFIER"/>
 	</Host>
   </Hosts>
   <Connections>

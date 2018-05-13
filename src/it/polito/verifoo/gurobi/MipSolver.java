@@ -86,22 +86,28 @@ public class MipSolver {
 		return totalTime;
 
 	}
-	static int count=0;
-	static int lat=0;
+
+	static int count = 0;
+	static int lat = 0;
+
 	public static int printThem() throws GRBException {
 		model.write("debug.lp");
-		
+
 		if (model.get(GRB.IntAttr.Status) == GRB.Status.OPTIMAL) {
-			//printObjs();
+			// printObjs();
 			hostVars.forEach(p -> {
 				try {
-					if (p.get(GRB.DoubleAttr.X) == 1) count++;
-						//System.out.println("Hosts: " + p.get(GRB.StringAttr.VarName) + " " + p.get(GRB.DoubleAttr.X));
+					if (p.get(GRB.DoubleAttr.X) == 1) {
+						count = count + hostList.get(p.get(GRB.StringAttr.VarName)).getCores();
+					}
+					// System.out.println("Hosts: " +
+					// p.get(GRB.StringAttr.VarName) + " " +
+					// p.get(GRB.DoubleAttr.X));
 				} catch (GRBException e) {
 					e.printStackTrace();
 				}
 			});
-			System.out.println("Hosts: "+count);
+			System.out.println("Cost: " + count);
 			placeVars.forEach(p -> {
 				try {
 					double temp = p.var.get(GRB.DoubleAttr.X);
@@ -113,26 +119,44 @@ public class MipSolver {
 					e.printStackTrace();
 				}
 			});
-			
+
 			edgeM.forEach(p -> {
 				try {
-					if (p.var.get(GRB.DoubleAttr.X) == 1){
-						
-							for (Connection edgeConnections : edge) {
-								if(edgeConnections.getSourceHost().equals(p.startN) && edgeConnections.getDestHost().equals(p.endN)){
-									 lat = lat+edgeConnections.getAvgLatency();
-									 //System.out.println("Edges: " + p.var.get(GRB.StringAttr.VarName) + " " + p.var.get(GRB.DoubleAttr.X));
-								}
+					if (p.var.get(GRB.DoubleAttr.X) == 1) {
+						for (Connection edgeConnections : edge) {
+							if (edgeConnections.getSourceHost().equals(p.startN)
+									&& edgeConnections.getDestHost().equals(p.endN)) {
+								lat = lat + edgeConnections.getAvgLatency();
+								// System.out.println("Edges: " +
+								// p.var.get(GRB.StringAttr.VarName) + " " +
+								// p.var.get(GRB.DoubleAttr.X));
 							}
-									
+						}
+
 					}
-						
+
 				} catch (GRBException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			});
-			System.out.println("Latency is: "+lat);
+
+			edge.forEach(edgeConnections -> {
+				for (Edge p : edgeM) {
+					try {
+						if (edgeConnections.getSourceHost().equals(p.startN)
+								&& edgeConnections.getDestHost().equals(p.endN) && p.var.get(GRB.DoubleAttr.X) == 1) {
+							System.out.println("Latency between " +p.var.get(GRB.StringAttr.VarName)  + " = " + edgeConnections.getAvgLatency());
+							//System.out.println("Edges: " + p.var.get(GRB.StringAttr.VarName) + " " + p.var.get(GRB.DoubleAttr.X));
+
+						}
+					} catch (GRBException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+
+			System.out.println("Latency is: " + lat);
 			// Dispose of model and environment
 			model.dispose();
 			env.dispose();
@@ -207,20 +231,21 @@ public class MipSolver {
 		generateVars();
 		constraints();
 	}
-	
+
 	private void getOrderedNodes(Node node, List<Node> all) {
 		all.add(node);
-		if(all.size()>100) {
+		if (all.size() > 100) {
 			System.out.println("to many");
 			return;
 		}
-		//System.out.println("Doing:  "+ node.getName());
+		// System.out.println("Doing: "+ node.getName());
 		if (!node.getNeighbour().isEmpty()) {
-			if(all.contains(nodeList.get(node.getNeighbour().get(0).getName()))){
-				if(node.getNeighbour().size()!=2) return;
+			if (all.contains(nodeList.get(node.getNeighbour().get(0).getName()))) {
+				if (node.getNeighbour().size() != 2)
+					return;
 				getOrderedNodes(nodeList.get(node.getNeighbour().get(1).getName()), all);
 				return;
-			}else{
+			} else {
 				getOrderedNodes(nodeList.get(node.getNeighbour().get(0).getName()), all);
 				return;
 			}
@@ -228,16 +253,15 @@ public class MipSolver {
 		return;
 	}
 
-	
-
 	private void constraints() throws GRBException {
-	
-		
-/*		GRBLinExpr temps = new GRBLinExpr(); Optional<MPlace> tt =
-				 placeVars.stream().filter(p -> p.host.equals("host12") &&
-				  p.vnf.equals("MAC0")).findFirst(); temps.addTerm(1, tt.get().var);
-				 model.addConstr(temps, GRB.EQUAL, 1, "twos");*/
-				 
+
+		/*
+		 * GRBLinExpr temps = new GRBLinExpr(); Optional<MPlace> tt =
+		 * placeVars.stream().filter(p -> p.host.equals("host12") &&
+		 * p.vnf.equals("MAC0")).findFirst(); temps.addTerm(1, tt.get().var);
+		 * model.addConstr(temps, GRB.EQUAL, 1, "twos");
+		 */
+
 		// at least host + obj
 		GRBLinExpr obj = new GRBLinExpr();
 
@@ -245,7 +269,7 @@ public class MipSolver {
 			try {
 				// System.out.println("%%% For host:" + p);
 				GRBVar hostVar = model.addVar(0, 1, 0, GRB.BINARY, p.getName());
-				obj.addTerm(1, hostVar);
+				obj.addTerm(p.getCores(), hostVar);
 
 				hostVars.add(hostVar);
 
@@ -281,7 +305,6 @@ public class MipSolver {
 				e.printStackTrace();
 			}
 		});
-		
 
 		// at least one m to be true
 		// System.out.println("Only one placement");
@@ -306,7 +329,8 @@ public class MipSolver {
 					if (!string1n.host.equals(string2n.host)) {
 						GRBVar temp = model.addVar(0, 1, 0, GRB.BINARY,
 								string1n.vnf + string1n.host + string2n.vnf + string2n.host);
-						// System.out.println("EDGEyes:" + string1n.vnf + string1n.host + string2n.vnf + string2n.host);
+						// System.out.println("EDGEyes:" + string1n.vnf +
+						// string1n.host + string2n.vnf + string2n.host);
 						edgeM.add(new Edge(string1n.host, string2n.host, string1n.vnf, string2n.vnf, temp));
 					}
 				}
@@ -350,7 +374,7 @@ public class MipSolver {
 				}
 			}
 		}
-		/* ############################## */model.setObjectiveN(obj, 1, 1000, 1, 1,1, "maxO");
+		/* ############################## */model.setObjectiveN(obj, 1, 1000, 1, 1, 1, "maxO");
 	}
 
 	public void latencyObj() throws GRBException {
@@ -420,7 +444,8 @@ public class MipSolver {
 			// System.out.println("looking for"+one+ "now"+two+"sdfsdf");
 			if (one.equals(two)) {
 				storage = nodeMetrics.getReqStorage();
-//				/System.out.println("for:" + vnf + " metric found:" + storage);
+				// /System.out.println("for:" + vnf + " metric found:" +
+				// storage);
 			} else {
 				// System.out.println("not found for metric of:"+vnf);
 			}
