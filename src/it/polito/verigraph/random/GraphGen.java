@@ -27,7 +27,7 @@ class GraphGen extends Graph {
 	private FunctionalTypes clientTypes[] = { FunctionalTypes.ENDHOST };
 	private FunctionalTypes serverTypes[] = { FunctionalTypes.MAILSERVER, FunctionalTypes.WEBSERVER };
 	private FunctionalTypes middleTypes[] = { FunctionalTypes.FIELDMODIFIER };
-	private FunctionalTypes middleTypesRAN[] = { FunctionalTypes.MAC,FunctionalTypes.RLC,FunctionalTypes.PDCP, FunctionalTypes.SGW,FunctionalTypes.PGW };
+	private FunctionalTypes middleTypesRAN[] = { FunctionalTypes.PHY, FunctionalTypes.MAC,FunctionalTypes.RLC,FunctionalTypes.PDCP,FunctionalTypes.SDAP, FunctionalTypes.SGW,FunctionalTypes.PGW };
 
 	private PolicyGen.PolicyType types[] = { PolicyType.REACHABILITY, PolicyType.ISOLATION };
 

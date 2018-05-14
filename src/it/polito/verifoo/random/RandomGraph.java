@@ -161,6 +161,28 @@ public class RandomGraph {
 	        }*/
 	    	conf.setFieldmodifier(f);
 	        break;
+	    case "PHY":
+	    	 f = new Fieldmodifier();
+	    	f.setName("name");
+	        /*if(!nextBoolean){
+	            //conf_node.put("url", "www.facebook.com");
+	            conf_node.put("body", "weapon");
+	            conf_node.put("email_from", "spam@polito.it");
+	            conf_array.add(conf_node);
+	        }*/
+	    	conf.setFieldmodifier(f);
+	        break;
+	    case "SDAP":
+	    	 f = new Fieldmodifier();
+	    	f.setName("name");
+	        /*if(!nextBoolean){
+	            //conf_node.put("url", "www.facebook.com");
+	            conf_node.put("body", "weapon");
+	            conf_node.put("email_from", "spam@polito.it");
+	            conf_array.add(conf_node);
+	        }*/
+	    	conf.setFieldmodifier(f);
+	        break;
 	    case "MAC":
 	    	 f = new Fieldmodifier();
 	    	f.setName("name");

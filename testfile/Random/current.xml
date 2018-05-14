@@ -3,59 +3,59 @@
     <graphs>
         <graph id="0">
             <node id="0" name="ENDHOST0" functional_type="ENDHOST">
-                <neighbour id="2" name="MAC0"/>
+                <neighbour id="2" name="PHY0"/>
                 <configuration name="conf_ENDHOST0">
                     <endhost body="cats" email_from="verigraph@polito.it" url="www.facebook.com"/>
                 </configuration>
             </node>
             <node id="1" name="MAILSERVER0" functional_type="MAILSERVER">
-                <neighbour id="6" name="PGW4"/>
+                <neighbour id="6" name="SDAP4"/>
                 <configuration name="conf_MAILSERVER0">
                     <mailserver>
                         <name>MAILSERVER0</name>
                     </mailserver>
                 </configuration>
             </node>
-            <node id="2" name="MAC0" functional_type="MAC">
+            <node id="2" name="PHY0" functional_type="PHY">
                 <neighbour id="0" name="ENDHOST0"/>
-                <neighbour id="3" name="RLC1"/>
-                <configuration name="conf_MAC0">
+                <neighbour id="3" name="MAC1"/>
+                <configuration name="conf_PHY0">
                     <fieldmodifier>
                         <name>name</name>
                     </fieldmodifier>
                 </configuration>
             </node>
-            <node id="3" name="RLC1" functional_type="RLC">
-                <neighbour id="2" name="MAC0"/>
-                <neighbour id="4" name="PDCP2"/>
-                <configuration name="conf_RLC1">
+            <node id="3" name="MAC1" functional_type="MAC">
+                <neighbour id="2" name="PHY0"/>
+                <neighbour id="4" name="RLC2"/>
+                <configuration name="conf_MAC1">
                     <fieldmodifier>
                         <name>name</name>
                     </fieldmodifier>
                 </configuration>
             </node>
-            <node id="4" name="PDCP2" functional_type="PDCP">
-                <neighbour id="3" name="RLC1"/>
-                <neighbour id="5" name="SGW3"/>
-                <configuration name="conf_PDCP2">
+            <node id="4" name="RLC2" functional_type="RLC">
+                <neighbour id="3" name="MAC1"/>
+                <neighbour id="5" name="PDCP3"/>
+                <configuration name="conf_RLC2">
                     <fieldmodifier>
                         <name>name</name>
                     </fieldmodifier>
                 </configuration>
             </node>
-            <node id="5" name="SGW3" functional_type="SGW">
-                <neighbour id="4" name="PDCP2"/>
-                <neighbour id="6" name="PGW4"/>
-                <configuration name="conf_SGW3">
+            <node id="5" name="PDCP3" functional_type="PDCP">
+                <neighbour id="4" name="RLC2"/>
+                <neighbour id="6" name="SDAP4"/>
+                <configuration name="conf_PDCP3">
                     <fieldmodifier>
                         <name>name</name>
                     </fieldmodifier>
                 </configuration>
             </node>
-            <node id="6" name="PGW4" functional_type="PGW">
+            <node id="6" name="SDAP4" functional_type="SDAP">
                 <neighbour id="1" name="MAILSERVER0"/>
-                <neighbour id="5" name="SGW3"/>
-                <configuration name="conf_PGW4">
+                <neighbour id="5" name="PDCP3"/>
+                <configuration name="conf_SDAP4">
                     <fieldmodifier>
                         <name>name</name>
                     </fieldmodifier>
@@ -65,24 +65,24 @@
     </graphs>
     <Constraints>
         <NodeConstraints>
-            <NodeMetrics node="MAC0" reqStorage="120"/>
-            <NodeMetrics node="RLC1" reqStorage="195"/>
-            <NodeMetrics node="PDCP2" reqStorage="57"/>
-            <NodeMetrics node="SGW3" reqStorage="125"/>
-            <NodeMetrics node="PGW4" reqStorage="150"/>
+            <NodeMetrics node="PHY0" reqStorage="13"/>
+            <NodeMetrics node="MAC1" reqStorage="146"/>
+            <NodeMetrics node="RLC2" reqStorage="91"/>
+            <NodeMetrics node="PDCP3" reqStorage="92"/>
+            <NodeMetrics node="SDAP4" reqStorage="189"/>
         </NodeConstraints>
         <BandwidthConstraints>
-            <BandwidthMetrics src="RLC1" dst="MAC0" reqLatency="878"/>
-            <BandwidthMetrics src="SGW3" dst="PGW4" reqLatency="555"/>
+            <BandwidthMetrics src="MAC1" dst="RLC2" reqLatency="325"/>
+            <BandwidthMetrics src="PDCP3" dst="RLC2" reqLatency="209"/>
         </BandwidthConstraints>
     </Constraints>
     <PropertyDefinition>
         <Property name="ReachabilityProperty" graph="0" src="ENDHOST0" dst="MAILSERVER0"/>
     </PropertyDefinition>
     <Hosts>
-        <Host name="host0" cpu="2" cores="3" diskStorage="274" memory="24" maxVNF="3" type="CLIENT" fixedEndpoint="ENDHOST0"/>
-        <Host name="host1" cpu="1" cores="2" diskStorage="133" memory="20" maxVNF="3" type="SERVER" fixedEndpoint="MAILSERVER0"/>
-        <Host name="host2" cpu="1" cores="7" diskStorage="286" memory="20" maxVNF="1" type="MIDDLEBOX">
+        <Host name="host0" cpu="1" cores="8" diskStorage="70" memory="4" maxVNF="6" type="CLIENT" fixedEndpoint="ENDHOST0"/>
+        <Host name="host1" cpu="2" cores="8" diskStorage="261" memory="23" maxVNF="2" type="SERVER" fixedEndpoint="MAILSERVER0"/>
+        <Host name="host2" cpu="2" cores="1" diskStorage="118" memory="15" maxVNF="7" type="MIDDLEBOX">
             <SupportedVNF functional_type="FIREWALL"/>
             <SupportedVNF functional_type="ENDHOST"/>
             <SupportedVNF functional_type="ENDPOINT"/>
@@ -98,7 +98,7 @@
             <SupportedVNF functional_type="WEBSERVER"/>
             <SupportedVNF functional_type="FIELDMODIFIER"/>
             <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="SDAP"/>
             <SupportedVNF functional_type="RLC"/>
             <SupportedVNF functional_type="MAC"/>
             <SupportedVNF functional_type="PHY"/>
@@ -107,7 +107,7 @@
             <SupportedVNF functional_type="MME"/>
             <SupportedVNF functional_type="FIELDMODIFIER"/>
         </Host>
-        <Host name="host3" cpu="2" cores="1" diskStorage="22" memory="18" maxVNF="1" type="MIDDLEBOX">
+        <Host name="host3" cpu="1" cores="3" diskStorage="14" memory="29" maxVNF="9" type="MIDDLEBOX">
             <SupportedVNF functional_type="FIREWALL"/>
             <SupportedVNF functional_type="ENDHOST"/>
             <SupportedVNF functional_type="ENDPOINT"/>
@@ -123,507 +123,7 @@
             <SupportedVNF functional_type="WEBSERVER"/>
             <SupportedVNF functional_type="FIELDMODIFIER"/>
             <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host4" cpu="2" cores="4" diskStorage="138" memory="13" maxVNF="5" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host5" cpu="1" cores="1" diskStorage="109" memory="23" maxVNF="6" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host6" cpu="2" cores="3" diskStorage="17" memory="37" maxVNF="1" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host7" cpu="1" cores="3" diskStorage="172" memory="56" maxVNF="2" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host8" cpu="1" cores="4" diskStorage="216" memory="32" maxVNF="8" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host9" cpu="2" cores="1" diskStorage="142" memory="56" maxVNF="1" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host10" cpu="2" cores="1" diskStorage="144" memory="27" maxVNF="4" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host11" cpu="1" cores="2" diskStorage="174" memory="55" maxVNF="5" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host12" cpu="2" cores="2" diskStorage="248" memory="8" maxVNF="5" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host13" cpu="2" cores="6" diskStorage="241" memory="8" maxVNF="7" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host14" cpu="1" cores="6" diskStorage="114" memory="39" maxVNF="8" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host15" cpu="2" cores="5" diskStorage="298" memory="26" maxVNF="7" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host16" cpu="2" cores="3" diskStorage="269" memory="29" maxVNF="10" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host17" cpu="2" cores="1" diskStorage="207" memory="54" maxVNF="1" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host18" cpu="2" cores="3" diskStorage="269" memory="33" maxVNF="5" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host19" cpu="1" cores="6" diskStorage="33" memory="6" maxVNF="9" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host20" cpu="2" cores="6" diskStorage="60" memory="7" maxVNF="4" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host21" cpu="1" cores="8" diskStorage="43" memory="62" maxVNF="4" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host22" cpu="2" cores="1" diskStorage="262" memory="28" maxVNF="4" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
-            <SupportedVNF functional_type="RLC"/>
-            <SupportedVNF functional_type="MAC"/>
-            <SupportedVNF functional_type="PHY"/>
-            <SupportedVNF functional_type="SGW"/>
-            <SupportedVNF functional_type="PGW"/>
-            <SupportedVNF functional_type="MME"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-        </Host>
-        <Host name="host23" cpu="1" cores="7" diskStorage="2" memory="19" maxVNF="9" type="MIDDLEBOX">
-            <SupportedVNF functional_type="FIREWALL"/>
-            <SupportedVNF functional_type="ENDHOST"/>
-            <SupportedVNF functional_type="ENDPOINT"/>
-            <SupportedVNF functional_type="ANTISPAM"/>
-            <SupportedVNF functional_type="CACHE"/>
-            <SupportedVNF functional_type="DPI"/>
-            <SupportedVNF functional_type="MAILCLIENT"/>
-            <SupportedVNF functional_type="MAILSERVER"/>
-            <SupportedVNF functional_type="NAT"/>
-            <SupportedVNF functional_type="VPNACCESS"/>
-            <SupportedVNF functional_type="VPNEXIT"/>
-            <SupportedVNF functional_type="WEBCLIENT"/>
-            <SupportedVNF functional_type="WEBSERVER"/>
-            <SupportedVNF functional_type="FIELDMODIFIER"/>
-            <SupportedVNF functional_type="PDCP"/>
-            <SupportedVNF functional_type="SDCP"/>
+            <SupportedVNF functional_type="SDAP"/>
             <SupportedVNF functional_type="RLC"/>
             <SupportedVNF functional_type="MAC"/>
             <SupportedVNF functional_type="PHY"/>
@@ -634,254 +134,9 @@
         </Host>
     </Hosts>
     <Connections>
-        <Connection sourceHost="host0" destHost="host2" avgLatency="521"/>
-        <Connection sourceHost="host0" destHost="host4" avgLatency="388"/>
-        <Connection sourceHost="host0" destHost="host7" avgLatency="752"/>
-        <Connection sourceHost="host0" destHost="host9" avgLatency="362"/>
-        <Connection sourceHost="host0" destHost="host11" avgLatency="806"/>
-        <Connection sourceHost="host0" destHost="host13" avgLatency="684"/>
-        <Connection sourceHost="host0" destHost="host14" avgLatency="505"/>
-        <Connection sourceHost="host0" destHost="host15" avgLatency="815"/>
-        <Connection sourceHost="host0" destHost="host21" avgLatency="193"/>
-        <Connection sourceHost="host2" destHost="host1" avgLatency="607"/>
-        <Connection sourceHost="host3" destHost="host1" avgLatency="564"/>
-        <Connection sourceHost="host4" destHost="host1" avgLatency="735"/>
-        <Connection sourceHost="host5" destHost="host1" avgLatency="516"/>
-        <Connection sourceHost="host6" destHost="host1" avgLatency="897"/>
-        <Connection sourceHost="host7" destHost="host1" avgLatency="394"/>
-        <Connection sourceHost="host9" destHost="host1" avgLatency="427"/>
-        <Connection sourceHost="host10" destHost="host1" avgLatency="172"/>
-        <Connection sourceHost="host11" destHost="host1" avgLatency="717"/>
-        <Connection sourceHost="host14" destHost="host1" avgLatency="20"/>
-        <Connection sourceHost="host15" destHost="host1" avgLatency="970"/>
-        <Connection sourceHost="host17" destHost="host1" avgLatency="443"/>
-        <Connection sourceHost="host18" destHost="host1" avgLatency="103"/>
-        <Connection sourceHost="host20" destHost="host1" avgLatency="185"/>
-        <Connection sourceHost="host21" destHost="host1" avgLatency="345"/>
-        <Connection sourceHost="host22" destHost="host1" avgLatency="480"/>
-        <Connection sourceHost="host23" destHost="host1" avgLatency="905"/>
-        <Connection sourceHost="host2" destHost="host5" avgLatency="65"/>
-        <Connection sourceHost="host2" destHost="host6" avgLatency="737"/>
-        <Connection sourceHost="host2" destHost="host8" avgLatency="488"/>
-        <Connection sourceHost="host2" destHost="host9" avgLatency="968"/>
-        <Connection sourceHost="host2" destHost="host10" avgLatency="927"/>
-        <Connection sourceHost="host2" destHost="host11" avgLatency="114"/>
-        <Connection sourceHost="host2" destHost="host12" avgLatency="373"/>
-        <Connection sourceHost="host2" destHost="host15" avgLatency="885"/>
-        <Connection sourceHost="host2" destHost="host16" avgLatency="681"/>
-        <Connection sourceHost="host2" destHost="host19" avgLatency="806"/>
-        <Connection sourceHost="host2" destHost="host21" avgLatency="545"/>
-        <Connection sourceHost="host2" destHost="host22" avgLatency="844"/>
-        <Connection sourceHost="host3" destHost="host6" avgLatency="244"/>
-        <Connection sourceHost="host3" destHost="host8" avgLatency="383"/>
-        <Connection sourceHost="host3" destHost="host9" avgLatency="206"/>
-        <Connection sourceHost="host3" destHost="host11" avgLatency="632"/>
-        <Connection sourceHost="host3" destHost="host12" avgLatency="662"/>
-        <Connection sourceHost="host3" destHost="host18" avgLatency="515"/>
-        <Connection sourceHost="host3" destHost="host20" avgLatency="737"/>
-        <Connection sourceHost="host4" destHost="host6" avgLatency="324"/>
-        <Connection sourceHost="host4" destHost="host7" avgLatency="132"/>
-        <Connection sourceHost="host4" destHost="host8" avgLatency="391"/>
-        <Connection sourceHost="host4" destHost="host9" avgLatency="150"/>
-        <Connection sourceHost="host4" destHost="host12" avgLatency="856"/>
-        <Connection sourceHost="host4" destHost="host16" avgLatency="582"/>
-        <Connection sourceHost="host4" destHost="host18" avgLatency="761"/>
-        <Connection sourceHost="host4" destHost="host19" avgLatency="967"/>
-        <Connection sourceHost="host4" destHost="host21" avgLatency="508"/>
-        <Connection sourceHost="host4" destHost="host23" avgLatency="855"/>
-        <Connection sourceHost="host5" destHost="host7" avgLatency="115"/>
-        <Connection sourceHost="host5" destHost="host9" avgLatency="760"/>
-        <Connection sourceHost="host5" destHost="host10" avgLatency="558"/>
-        <Connection sourceHost="host5" destHost="host12" avgLatency="222"/>
-        <Connection sourceHost="host5" destHost="host13" avgLatency="979"/>
-        <Connection sourceHost="host5" destHost="host15" avgLatency="726"/>
-        <Connection sourceHost="host5" destHost="host16" avgLatency="587"/>
-        <Connection sourceHost="host5" destHost="host17" avgLatency="711"/>
-        <Connection sourceHost="host5" destHost="host18" avgLatency="694"/>
-        <Connection sourceHost="host5" destHost="host19" avgLatency="682"/>
-        <Connection sourceHost="host5" destHost="host21" avgLatency="705"/>
-        <Connection sourceHost="host6" destHost="host4" avgLatency="261"/>
-        <Connection sourceHost="host6" destHost="host8" avgLatency="653"/>
-        <Connection sourceHost="host6" destHost="host9" avgLatency="932"/>
-        <Connection sourceHost="host6" destHost="host10" avgLatency="70"/>
-        <Connection sourceHost="host6" destHost="host11" avgLatency="181"/>
-        <Connection sourceHost="host6" destHost="host12" avgLatency="840"/>
-        <Connection sourceHost="host6" destHost="host16" avgLatency="587"/>
-        <Connection sourceHost="host6" destHost="host20" avgLatency="392"/>
-        <Connection sourceHost="host6" destHost="host21" avgLatency="31"/>
-        <Connection sourceHost="host6" destHost="host22" avgLatency="489"/>
-        <Connection sourceHost="host7" destHost="host3" avgLatency="745"/>
-        <Connection sourceHost="host7" destHost="host4" avgLatency="131"/>
-        <Connection sourceHost="host7" destHost="host6" avgLatency="365"/>
-        <Connection sourceHost="host7" destHost="host8" avgLatency="495"/>
-        <Connection sourceHost="host7" destHost="host12" avgLatency="675"/>
-        <Connection sourceHost="host7" destHost="host13" avgLatency="828"/>
-        <Connection sourceHost="host7" destHost="host14" avgLatency="751"/>
-        <Connection sourceHost="host7" destHost="host16" avgLatency="354"/>
-        <Connection sourceHost="host7" destHost="host17" avgLatency="987"/>
-        <Connection sourceHost="host7" destHost="host19" avgLatency="899"/>
-        <Connection sourceHost="host7" destHost="host21" avgLatency="534"/>
-        <Connection sourceHost="host8" destHost="host2" avgLatency="901"/>
-        <Connection sourceHost="host8" destHost="host3" avgLatency="972"/>
-        <Connection sourceHost="host8" destHost="host6" avgLatency="409"/>
-        <Connection sourceHost="host8" destHost="host9" avgLatency="727"/>
-        <Connection sourceHost="host8" destHost="host11" avgLatency="526"/>
-        <Connection sourceHost="host8" destHost="host12" avgLatency="626"/>
-        <Connection sourceHost="host8" destHost="host13" avgLatency="865"/>
-        <Connection sourceHost="host8" destHost="host17" avgLatency="101"/>
-        <Connection sourceHost="host8" destHost="host19" avgLatency="240"/>
-        <Connection sourceHost="host8" destHost="host21" avgLatency="999"/>
-        <Connection sourceHost="host8" destHost="host22" avgLatency="438"/>
-        <Connection sourceHost="host9" destHost="host3" avgLatency="949"/>
-        <Connection sourceHost="host9" destHost="host4" avgLatency="232"/>
-        <Connection sourceHost="host9" destHost="host10" avgLatency="628"/>
-        <Connection sourceHost="host9" destHost="host11" avgLatency="179"/>
-        <Connection sourceHost="host9" destHost="host13" avgLatency="351"/>
-        <Connection sourceHost="host9" destHost="host16" avgLatency="866"/>
-        <Connection sourceHost="host9" destHost="host17" avgLatency="571"/>
-        <Connection sourceHost="host9" destHost="host23" avgLatency="132"/>
-        <Connection sourceHost="host10" destHost="host3" avgLatency="534"/>
-        <Connection sourceHost="host10" destHost="host4" avgLatency="77"/>
-        <Connection sourceHost="host10" destHost="host7" avgLatency="397"/>
-        <Connection sourceHost="host10" destHost="host11" avgLatency="71"/>
-        <Connection sourceHost="host10" destHost="host12" avgLatency="874"/>
-        <Connection sourceHost="host10" destHost="host13" avgLatency="772"/>
-        <Connection sourceHost="host10" destHost="host14" avgLatency="310"/>
-        <Connection sourceHost="host10" destHost="host18" avgLatency="224"/>
-        <Connection sourceHost="host10" destHost="host20" avgLatency="724"/>
-        <Connection sourceHost="host10" destHost="host21" avgLatency="41"/>
-        <Connection sourceHost="host10" destHost="host22" avgLatency="868"/>
-        <Connection sourceHost="host11" destHost="host6" avgLatency="588"/>
-        <Connection sourceHost="host11" destHost="host9" avgLatency="294"/>
-        <Connection sourceHost="host11" destHost="host14" avgLatency="792"/>
-        <Connection sourceHost="host11" destHost="host15" avgLatency="186"/>
-        <Connection sourceHost="host11" destHost="host18" avgLatency="642"/>
-        <Connection sourceHost="host11" destHost="host19" avgLatency="785"/>
-        <Connection sourceHost="host11" destHost="host21" avgLatency="410"/>
-        <Connection sourceHost="host11" destHost="host22" avgLatency="545"/>
-        <Connection sourceHost="host11" destHost="host23" avgLatency="776"/>
-        <Connection sourceHost="host12" destHost="host2" avgLatency="37"/>
-        <Connection sourceHost="host12" destHost="host3" avgLatency="925"/>
-        <Connection sourceHost="host12" destHost="host8" avgLatency="153"/>
-        <Connection sourceHost="host12" destHost="host10" avgLatency="770"/>
-        <Connection sourceHost="host12" destHost="host11" avgLatency="246"/>
-        <Connection sourceHost="host12" destHost="host13" avgLatency="617"/>
-        <Connection sourceHost="host12" destHost="host16" avgLatency="446"/>
-        <Connection sourceHost="host12" destHost="host17" avgLatency="260"/>
-        <Connection sourceHost="host12" destHost="host21" avgLatency="216"/>
-        <Connection sourceHost="host13" destHost="host4" avgLatency="560"/>
-        <Connection sourceHost="host13" destHost="host8" avgLatency="861"/>
-        <Connection sourceHost="host13" destHost="host10" avgLatency="972"/>
-        <Connection sourceHost="host13" destHost="host11" avgLatency="358"/>
-        <Connection sourceHost="host13" destHost="host12" avgLatency="553"/>
-        <Connection sourceHost="host13" destHost="host14" avgLatency="653"/>
-        <Connection sourceHost="host13" destHost="host16" avgLatency="254"/>
-        <Connection sourceHost="host13" destHost="host17" avgLatency="46"/>
-        <Connection sourceHost="host13" destHost="host20" avgLatency="918"/>
-        <Connection sourceHost="host13" destHost="host21" avgLatency="983"/>
-        <Connection sourceHost="host14" destHost="host2" avgLatency="505"/>
-        <Connection sourceHost="host14" destHost="host6" avgLatency="72"/>
-        <Connection sourceHost="host14" destHost="host7" avgLatency="474"/>
-        <Connection sourceHost="host14" destHost="host9" avgLatency="27"/>
-        <Connection sourceHost="host14" destHost="host10" avgLatency="849"/>
-        <Connection sourceHost="host14" destHost="host13" avgLatency="387"/>
-        <Connection sourceHost="host14" destHost="host15" avgLatency="18"/>
-        <Connection sourceHost="host14" destHost="host16" avgLatency="869"/>
-        <Connection sourceHost="host14" destHost="host17" avgLatency="850"/>
-        <Connection sourceHost="host14" destHost="host20" avgLatency="320"/>
-        <Connection sourceHost="host14" destHost="host21" avgLatency="589"/>
-        <Connection sourceHost="host14" destHost="host23" avgLatency="568"/>
-        <Connection sourceHost="host15" destHost="host3" avgLatency="467"/>
-        <Connection sourceHost="host15" destHost="host4" avgLatency="88"/>
-        <Connection sourceHost="host15" destHost="host6" avgLatency="343"/>
-        <Connection sourceHost="host15" destHost="host8" avgLatency="432"/>
-        <Connection sourceHost="host15" destHost="host9" avgLatency="550"/>
-        <Connection sourceHost="host15" destHost="host10" avgLatency="920"/>
-        <Connection sourceHost="host15" destHost="host11" avgLatency="157"/>
-        <Connection sourceHost="host15" destHost="host12" avgLatency="914"/>
-        <Connection sourceHost="host15" destHost="host17" avgLatency="306"/>
-        <Connection sourceHost="host15" destHost="host20" avgLatency="806"/>
-        <Connection sourceHost="host16" destHost="host2" avgLatency="862"/>
-        <Connection sourceHost="host16" destHost="host5" avgLatency="493"/>
-        <Connection sourceHost="host16" destHost="host7" avgLatency="789"/>
-        <Connection sourceHost="host16" destHost="host8" avgLatency="837"/>
-        <Connection sourceHost="host16" destHost="host9" avgLatency="152"/>
-        <Connection sourceHost="host16" destHost="host10" avgLatency="214"/>
-        <Connection sourceHost="host16" destHost="host14" avgLatency="172"/>
-        <Connection sourceHost="host16" destHost="host15" avgLatency="721"/>
-        <Connection sourceHost="host16" destHost="host17" avgLatency="378"/>
-        <Connection sourceHost="host16" destHost="host19" avgLatency="198"/>
-        <Connection sourceHost="host16" destHost="host20" avgLatency="157"/>
-        <Connection sourceHost="host16" destHost="host23" avgLatency="511"/>
-        <Connection sourceHost="host17" destHost="host6" avgLatency="833"/>
-        <Connection sourceHost="host17" destHost="host7" avgLatency="223"/>
-        <Connection sourceHost="host17" destHost="host8" avgLatency="912"/>
-        <Connection sourceHost="host17" destHost="host9" avgLatency="855"/>
-        <Connection sourceHost="host17" destHost="host12" avgLatency="746"/>
-        <Connection sourceHost="host17" destHost="host14" avgLatency="734"/>
-        <Connection sourceHost="host17" destHost="host15" avgLatency="749"/>
-        <Connection sourceHost="host17" destHost="host19" avgLatency="219"/>
-        <Connection sourceHost="host17" destHost="host22" avgLatency="344"/>
-        <Connection sourceHost="host18" destHost="host2" avgLatency="510"/>
-        <Connection sourceHost="host18" destHost="host3" avgLatency="25"/>
-        <Connection sourceHost="host18" destHost="host5" avgLatency="830"/>
-        <Connection sourceHost="host18" destHost="host7" avgLatency="498"/>
-        <Connection sourceHost="host18" destHost="host13" avgLatency="856"/>
-        <Connection sourceHost="host18" destHost="host14" avgLatency="652"/>
-        <Connection sourceHost="host18" destHost="host17" avgLatency="539"/>
-        <Connection sourceHost="host18" destHost="host21" avgLatency="759"/>
-        <Connection sourceHost="host18" destHost="host23" avgLatency="758"/>
-        <Connection sourceHost="host19" destHost="host5" avgLatency="999"/>
-        <Connection sourceHost="host19" destHost="host6" avgLatency="634"/>
-        <Connection sourceHost="host19" destHost="host7" avgLatency="235"/>
-        <Connection sourceHost="host19" destHost="host9" avgLatency="433"/>
-        <Connection sourceHost="host19" destHost="host11" avgLatency="260"/>
-        <Connection sourceHost="host19" destHost="host12" avgLatency="769"/>
-        <Connection sourceHost="host19" destHost="host14" avgLatency="307"/>
-        <Connection sourceHost="host19" destHost="host15" avgLatency="568"/>
-        <Connection sourceHost="host19" destHost="host16" avgLatency="208"/>
-        <Connection sourceHost="host19" destHost="host18" avgLatency="437"/>
-        <Connection sourceHost="host19" destHost="host20" avgLatency="461"/>
-        <Connection sourceHost="host19" destHost="host21" avgLatency="570"/>
-        <Connection sourceHost="host19" destHost="host22" avgLatency="449"/>
-        <Connection sourceHost="host19" destHost="host23" avgLatency="553"/>
-        <Connection sourceHost="host20" destHost="host2" avgLatency="937"/>
-        <Connection sourceHost="host20" destHost="host3" avgLatency="981"/>
-        <Connection sourceHost="host20" destHost="host4" avgLatency="95"/>
-        <Connection sourceHost="host20" destHost="host5" avgLatency="692"/>
-        <Connection sourceHost="host20" destHost="host8" avgLatency="385"/>
-        <Connection sourceHost="host20" destHost="host10" avgLatency="194"/>
-        <Connection sourceHost="host20" destHost="host11" avgLatency="142"/>
-        <Connection sourceHost="host20" destHost="host12" avgLatency="910"/>
-        <Connection sourceHost="host20" destHost="host14" avgLatency="844"/>
-        <Connection sourceHost="host20" destHost="host22" avgLatency="220"/>
-        <Connection sourceHost="host20" destHost="host23" avgLatency="643"/>
-        <Connection sourceHost="host21" destHost="host3" avgLatency="194"/>
-        <Connection sourceHost="host21" destHost="host5" avgLatency="815"/>
-        <Connection sourceHost="host21" destHost="host13" avgLatency="579"/>
-        <Connection sourceHost="host21" destHost="host18" avgLatency="841"/>
-        <Connection sourceHost="host21" destHost="host19" avgLatency="901"/>
-        <Connection sourceHost="host21" destHost="host23" avgLatency="660"/>
-        <Connection sourceHost="host22" destHost="host4" avgLatency="830"/>
-        <Connection sourceHost="host22" destHost="host6" avgLatency="678"/>
-        <Connection sourceHost="host22" destHost="host7" avgLatency="508"/>
-        <Connection sourceHost="host22" destHost="host8" avgLatency="647"/>
-        <Connection sourceHost="host22" destHost="host9" avgLatency="806"/>
-        <Connection sourceHost="host22" destHost="host11" avgLatency="460"/>
-        <Connection sourceHost="host22" destHost="host12" avgLatency="395"/>
-        <Connection sourceHost="host22" destHost="host15" avgLatency="827"/>
-        <Connection sourceHost="host22" destHost="host16" avgLatency="79"/>
-        <Connection sourceHost="host22" destHost="host19" avgLatency="751"/>
-        <Connection sourceHost="host22" destHost="host21" avgLatency="158"/>
-        <Connection sourceHost="host22" destHost="host23" avgLatency="926"/>
-        <Connection sourceHost="host23" destHost="host6" avgLatency="289"/>
-        <Connection sourceHost="host23" destHost="host7" avgLatency="425"/>
-        <Connection sourceHost="host23" destHost="host8" avgLatency="698"/>
-        <Connection sourceHost="host23" destHost="host12" avgLatency="531"/>
-        <Connection sourceHost="host23" destHost="host13" avgLatency="791"/>
-        <Connection sourceHost="host23" destHost="host15" avgLatency="20"/>
-        <Connection sourceHost="host23" destHost="host16" avgLatency="374"/>
-        <Connection sourceHost="host23" destHost="host19" avgLatency="160"/>
-        <Connection sourceHost="host23" destHost="host20" avgLatency="126"/>
+        <Connection sourceHost="host0" destHost="host2" avgLatency="277"/>
+        <Connection sourceHost="host2" destHost="host1" avgLatency="412"/>
+        <Connection sourceHost="host2" destHost="host2" avgLatency="372"/>
+        <Connection sourceHost="host3" destHost="host2" avgLatency="49"/>
     </Connections>
 </NFV>

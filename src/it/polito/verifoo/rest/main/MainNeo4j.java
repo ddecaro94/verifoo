@@ -11,11 +11,9 @@ import javax.xml.validation.SchemaFactory;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.neo4j.driver.v1.*;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 
-import static org.neo4j.driver.v1.Values.parameters;
 import org.xml.sax.SAXException;
 
 import it.polito.verifoo.rest.common.BadGraphError;
@@ -40,7 +38,7 @@ public class MainNeo4j{
             Schema schema = sf.newSchema( new File( "./xsd/nfvSchema.xsd" )); 
             u.setSchema(schema);
                     // unmarshal a document into a tree of Java content objects*/
-            NFV root = (NFV) u.unmarshal( new FileInputStream(   "./testfile/ServiceGraphs/sg2clients4nodes2servers3hostSAT_AtoB-FW.xml" ) );
+            NFV root = (NFV) u.unmarshal( new FileInputStream(   "./testfile/Random/current.xml" ) );
             
             VerifooSerializer test = new VerifooSerializer(root);
             Neo4jClient client = new Neo4jClient("bolt://127.0.0.1:7687", "neo4j", "password");

@@ -235,7 +235,7 @@ public class NodeNetworkObject extends HashMap<Node, NetworkObject>{
 					this.put(n,fm);
 					break;
 				}
-				case SDCP:{
+				case SDAP:{
 					if(n.getConfiguration().getFieldmodifier()==null){
 						throw new BadGraphError("You have specified a FIELDMODIFIER Type but you provide a configuration of another type",EType.INVALID_NODE_CONFIGURATION);
 					}

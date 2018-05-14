@@ -79,27 +79,17 @@ public class Main {
 							System.err.println("VNFs:" + temp.getNode().size() + "   Hosts:" + root.getHosts().getHost().size()
 									+ "   Links:" + root.getConnections().getConnection().size());
 
-						//if(root.getGraphs().getGraph().get(0).getNode().size()!=7) continue;
-						//if(root.getHosts().getHost().size()!=24) continue;
-						if(root.getConnections().getConnection().size()>1000) continue;
 						MipSolver mip = new MipSolver(root);
 						mip.latencyObj();
 						mip.optimizeIt();
 						OutputStream out = new FileOutputStream("./testfile/Random/current.xml");
 						m.marshal(root, out);
+						exit=true;
 						if (mip.printThem() == -1) {
 							return;
-						} else {
-							//mip.printThem();
 						}
-
-						// exit = true;
-						
 					} else {
-
-						// unmarshal a document into a tree of Java content
-						// objects
-						 root = (NFV) u.unmarshal(new FileInputStream("./testfile/RAN/sg3nodes12.xml"));
+						 root = (NFV) u.unmarshal(new FileInputStream("./testfile/Random/current.xml"));
 						 Graph temp = root.getGraphs().getGraph().get(0);
 							System.err.println("VNFs:" + temp.getNode().size() + "   Hosts:" + root.getHosts().getHost().size()
 									+ "   Links:" + root.getConnections().getConnection().size());
@@ -111,8 +101,6 @@ public class Main {
 						mip.printThem();
 						
 					}
-					//OutputStream out = new FileOutputStream("./testfile/Performance/bgAS.xml");
-					//m.marshal(root, out);
 					System.out.println("-------------");
 					VerifooSerializer test = new VerifooSerializer(root);
 					
@@ -134,14 +122,8 @@ public class Main {
 						if (r == null)
 							exit = true;
 					}
-					
-					// MedicineSimulator sim = new MedicineSimulator(root);
-					// sim.printAll();
-					// m.marshal( sim.getPhysicalTopology(), System.out );
-					// sim.stopSimulation();*/
+					exit=true;
 				} catch (BadGraphError | FileNotFoundException e) {
-					// logger.error("Graph semantically incorrect");
-					// System.out.println("Graph semantically incorrect");
 					logger.error(e);
 					if (r == null)
 						exit = true;
