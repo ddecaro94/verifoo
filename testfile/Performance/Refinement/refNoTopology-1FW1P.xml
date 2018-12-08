@@ -30,7 +30,7 @@
 	  <LinkConstraints/>
   </Constraints>
   <PropertyDefinition>
-  		<Property graph="0" name="IsolationProperty" src="10.0.0.1" dst="30.0.5.2"/> 			
+  		<Property graph="0" name="IsolationProperty" src="10.0.0.-1" dst="30.0.5.-1" src_port="80-90" dst_port="90-110"/> 			
   </PropertyDefinition>
   <ParsingString></ParsingString>
 </NFV>

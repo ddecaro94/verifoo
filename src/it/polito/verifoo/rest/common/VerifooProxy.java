@@ -2,9 +2,11 @@ package it.polito.verifoo.rest.common;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,11 +19,14 @@ import com.microsoft.z3.DatatypeExpr;
 import com.microsoft.z3.Expr;
 import com.microsoft.z3.Status;
 import it.polito.verifoo.components.RoutingTable;
+import it.polito.verifoo.rest.autoconfiguration.FWAutoconfigurationManager;
+import it.polito.verifoo.rest.autoconfiguration.WildcardManager;
 import it.polito.verifoo.rest.jaxb.*;
 import it.polito.verifoo.rest.jaxb.LinkConstraints.LinkMetrics;
 import it.polito.verifoo.rest.jaxb.NodeConstraints.NodeMetrics;
 import it.polito.verigraph.mcnet.components.*;
 import it.polito.verigraph.mcnet.components.Checker.Prop;
+import it.polito.verigraph.mcnet.netobjs.AclFirewall;
 /**
  * 
  * This is the main class that will interface with the Verifoo classes
@@ -33,6 +38,8 @@ public class VerifooProxy {
 	    private Network net;
 	    private AutoContext autoctx;
 	    private NodeNetworkObject netobjs;
+	    private WildcardManager wildcardManager;
+	    private FWAutoconfigurationManager FWmanager;
 	    private HashMap<Node,List<String>> rawDeploymentConditions;
 	    private HashMap<Node,List<String>> rawRoutingConditions;
 	    private HashMap<Node, HashMap<String, BoolExpr>> conditionDB;
@@ -81,8 +88,10 @@ public class VerifooProxy {
 			nctx = NetContextGenerator.generate(ctx,nodes,prop);
 			autoctx = new AutoContext(ctx);
 			net = new Network (ctx,new Object[]{nctx});
+			wildcardManager = new WildcardManager(nodes);
+			FWmanager = new FWAutoconfigurationManager(wildcardManager, prop, nodes);
 			/* Generate the different network object and map it to XML Node */
-			netobjs=new NodeNetworkObject(ctx, nctx, autoctx, net,nodes, prop.size(), nodeMetrics, prop);
+			netobjs=new NodeNetworkObject(ctx, nctx, autoctx, net,nodes, prop.size(), nodeMetrics, prop, FWmanager);
 			
 			AddressMapping adm = new AddressMapping(netobjs, nctx, net);
 			adm.setAddressMappings(nodes);
@@ -102,7 +111,8 @@ public class VerifooProxy {
 			cb = new ConditionStringBuilder(ctx, autoctx, connections, rawDeploymentConditions);
 			if(this.hosts.size() != 0)
 				checkPhysicalNetwork();
-		    checkNffg();	
+			checkNffg();	
+			FWmanager.minimizeRules();
 		    netobjs.generateVPN();
 		    netobjs.attachToNet();
 		    if(this.hosts.size() != 0)
@@ -362,9 +372,10 @@ public class VerifooProxy {
     
             try{
 				//links = (new LinkCreator(nodes)).getLinks();
-            	linkProvider = new LinkProvider(nodes, paths);
+            	linkProvider = new LinkProvider(nodes, paths, FWmanager);
 				//logger.debug("Links created");
 				//createInternalRouting(clients, servers);
+            	//FWmanager.minimizeRules();
 				List<List<String>> validChain = new ArrayList<>();
 				for(Node c:clients){
 					for(Node s:servers){
@@ -383,6 +394,7 @@ public class VerifooProxy {
 					//net.routingOptimizationSG2(netobjs.get(n), tuple._1, tuple._2 destinations);
 					//net.routingOptimization(netobjs.get(n), tuple._1);
 					tuple._1.forEach(rt -> logger.debug("From " + n.getName() + " to " + rt.ip + " -> next hop: "+ rt.nextHop));
+					//tuple._1.forEach(rt -> System.out.println("From " + n.getName() + " to " + rt.ip + " -> next hop: "+ rt.nextHop));
 					net.routingOptimizationSGOptional(netobjs.get(n), tuple._1, tuple._2, autoctx);
 				});
 			}catch(StackOverflowError e) {
@@ -548,25 +560,35 @@ public class VerifooProxy {
 					*/
 					rawRoutingConditions.get(client).add(next.getName());
 				}
-				for(Node n : rawRoutingConditions.keySet()){
-					ArrayList<RoutingTable> rt = new ArrayList<RoutingTable>();
-					//logger.debug("-----Routing Table NODE "+n.getName()+"-----");
-					List<String> nextHops = rawRoutingConditions.get(n).stream().distinct().collect(Collectors.toList());
-					for(String nextString:nextHops){
-						Node nextNode = nodes.stream().filter(no -> no.getName().equals(nextString) ).findFirst().get();
-						if(!nodeIsServer(n)){
-							//logger.debug("Adding ("+ ctx.mkTrue() +"), from "+ n.getName() +" to " + server.getName() + " next hop is " + nextNode.getName() + " with latency " + 0);
-							//System.out.println("Adding ("+ c +"), from "+ n.getName() +" to " + server.getName() + " next hop is " + next.getName() + " with latency " + latency);
-							rt.add(new RoutingTable(nctx.am.get(server.getName()), netobjs.get(nextNode), nctx.addLatency(1), ctx.mkTrue()));
-						}
+				
+			}
+			
+			for(Node n : rawRoutingConditions.keySet()){
+				ArrayList<RoutingTable> rt = new ArrayList<RoutingTable>();
+				//logger.debug("-----Routing Table NODE "+n.getName()+"-----");
+				List<String> nextHops = rawRoutingConditions.get(n).stream().distinct().collect(Collectors.toList());
+				for(String nextString:nextHops){
+					Node nextNode = nodes.stream().filter(no -> no.getName().equals(nextString) ).findFirst().get();
+					if(!nodeIsServer(n)){
+						//logger.debug("Adding ("+ ctx.mkTrue() +"), from "+ n.getName() +" to " + server.getName() + " next hop is " + nextNode.getName() + " with latency " + 0);
+						//System.out.println("Adding ("+ c +"), from "+ n.getName() +" to " + server.getName() + " next hop is " + next.getName() + " with latency " + latency);
+						rt.add(new RoutingTable(nctx.am.get(server.getName()), netobjs.get(nextNode), nctx.addLatency(1), ctx.mkTrue()));
 					}
-					if(!routingMap.containsKey(n)){
-						//logger.debug("Adding to the routing map " + n.getName());
-						routingMap.put(n, new Tuple<>(new ArrayList<>(), new ArrayList<>()));
-					}
-					Tuple<ArrayList<RoutingTable>, ArrayList<LinkMetrics>> tuple = routingMap.get(n);
-					tuple._1.addAll(rt);
 				}
+				
+				
+				//routingMap.values().stream().forEach(p-> System.out.println("before"+p._1.size()));
+		
+				if(!routingMap.containsKey(n)){
+					//logger.debug("Adding to the routing map " + n.getName());
+					routingMap.put(n, new Tuple<>(new ArrayList<>(), new ArrayList<>()));
+					
+				}
+				Tuple<ArrayList<RoutingTable>, ArrayList<LinkMetrics>> tuple = routingMap.get(n);
+				tuple._1.addAll(rt);
+				
+				
+				//routingMap.values().stream().forEach(p-> System.out.println("after"+p._1.size()));
 			}
 		}
 		/**
@@ -621,6 +643,11 @@ public class VerifooProxy {
 					//logger.debug("Route from SERVER " + source.getName() + " to " + nctx.am.get(server.getName())  + " -> " + netobjs.get(next));
 					rawRoutingConditions.get(source).add(next.getName());
 					found = true;
+	
+					NetworkObject sourceNetworkObject =  netobjs.get(source);
+					sourceNetworkObject.addNodesFrom(netobjs.get(prec), netobjs.get(next));
+					sourceNetworkObject.addNodesTo(netobjs.get(prec),netobjs.get(next));
+	
 				}
 				//logger.debug("Removing to visited from " + source.getName() +" to " + dest);
 				visited.get(source).remove(dest);
@@ -718,6 +745,7 @@ public class VerifooProxy {
 						//logger.debug("Adding to the routing map " + n.getName());
 						routingMap.put(n, new Tuple<>(new ArrayList<>(), new ArrayList<>()));
 					}
+					
 					Tuple<ArrayList<RoutingTable>, ArrayList<LinkMetrics>> tuple = routingMap.get(n);
 					tuple._1.addAll(rt);
 					tuple._2.addAll(bConstraints);
@@ -876,6 +904,7 @@ public class VerifooProxy {
 		    }else{
 		    	 	logger.debug("SAT ");
 		     		logger.debug( ""+ret.model); //p.printModel(ret.model);
+		     		//System.out.println(ret.model);
 		     		
 		    }
 			return ret;
