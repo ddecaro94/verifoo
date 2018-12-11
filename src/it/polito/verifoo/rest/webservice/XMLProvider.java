@@ -50,11 +50,8 @@ public class XMLProvider implements MessageBodyReader<Object>, MessageBodyWriter
             	synchronized(this){
             		m = JAXBContext.newInstance( "it.polito.verifoo.rest.jaxb").createMarshaller();
             	}
-                m.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE );
-                m.setProperty( Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION,"https://raw.githubusercontent.com/netgroup-polito/verifoo/rest-service/xsd/nfvSchema.xsd");
     			SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);    
     			Schema schema = sf.newSchema( new URL("https://raw.githubusercontent.com/netgroup-polito/verifoo/rest-service/xsd/nfvSchema.xsd"));
-    			m.setSchema(schema);
                 m.marshal(object, entityStream);
             } catch(JAXBException e) {
             	e.printStackTrace();
@@ -82,7 +79,6 @@ public class XMLProvider implements MessageBodyReader<Object>, MessageBodyWriter
         	}
         	SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);    
     		Schema schema = sf.newSchema( new URL("https://raw.githubusercontent.com/netgroup-polito/verifoo/rest-service/xsd/nfvSchema.xsd"));
-    		u.setSchema(schema);
             return (NFV)u.unmarshal(entityStream);
         } catch(JAXBException e) {
         	e.printStackTrace();
