@@ -38,7 +38,7 @@
 	<!-- TOMCAT LIFECICLE MANAGEMENT-->
 	<target name="start-tomcat" depends="check-tomcat-status" unless="tomcat.started" description="Start tomcat server">
 		<echo>Start Tomcat</echo>
-		<java classname="org.apache.catalina.startup.Bootstrap" fork="true" spawn="true"
+		<java classname="org.apache.catalina.startup.Bootstrap" fork="true" 
 			classpathref="tomcat.class.path">
 			<jvmarg value="-Dcatalina.home=${server.location}" />
 		</java>

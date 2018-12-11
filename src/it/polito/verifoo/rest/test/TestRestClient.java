@@ -19,6 +19,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import it.polito.verifoo.rest.jaxb.NFV;
 /**
  * 
  * This class tests the web service with some simple requests
@@ -53,12 +55,12 @@ public class TestRestClient {
 	@After
 	public void tearDown() throws Exception {
 	}
-	//final String target = "http://127.0.0.1:8080/verifoo/rest";
-	String target = System.getProperty("it.polito.rest.test.URL");
+	final String target = "http://127.0.0.1:8080/verifoo/rest";
+	//String target = System.getProperty("it.polito.rest.test.URL");
 	@Test
 	public void testdeploymentService() {
 		try {
-			String xmlread=java.nio.file.Files.lines(Paths.get("./testfile/nfv3nodes3hostsSAT-MAIL.xml")).collect(Collectors.joining("\n"));
+			String xmlread=java.nio.file.Files.lines(Paths.get("./testfile/opentBaton/nfv3nodes7hostsAutoPlace-FW-RR.xml")).collect(Collectors.joining("\n"));
 			//System.out.println(xmlread);
 			Response res = ClientBuilder.newClient()
 					.target(target)
@@ -67,56 +69,12 @@ public class TestRestClient {
 					.accept(MediaType.APPLICATION_XML)
 					.post(Entity.entity(xmlread,MediaType.APPLICATION_XML));
 			assertEquals(Status.OK.getStatusCode(), res.getStatus());
+			String nfv = res.readEntity(String.class);
+			System.out.println(nfv);
+			
 		} catch (IOException e) {
 			fail(e.toString());
 		}
 	}
-	@Test
-	public void testTranslatorOnly() {
-		try {
-			String xmlread=java.nio.file.Files.lines(Paths.get("./testfile/nfv5nodes7hostsSAT-WEBwithParsingString.xml")).collect(Collectors.joining("\n"));
-			//System.out.println(xmlread);
-			Response res = ClientBuilder.newClient()
-					.target(target)
-					.path("/converter")
-					.request(MediaType.APPLICATION_XML)
-					.accept(MediaType.APPLICATION_XML)
-					.post(Entity.entity(xmlread,MediaType.APPLICATION_XML));
-			assertEquals(Status.OK.getStatusCode(),res.getStatus());
-		} catch (IOException e) {
-			fail(e.toString());
-		}
-	}
-	@Test
-	public void testBadGraph() {
-		try {
-			String xmlread=java.nio.file.Files.lines(Paths.get("./testfile/nfv5nodes7hostsUNSAT-WEB.xml")).collect(Collectors.joining("\n"));
-			//System.out.println(xmlread);
-			Response res = ClientBuilder.newClient()
-					.target(target)
-					.path("/deployment")
-					.request(MediaType.APPLICATION_XML)
-					.accept(MediaType.APPLICATION_XML)
-					.post(Entity.entity(xmlread,MediaType.APPLICATION_XML));
-			assertEquals(Status.BAD_REQUEST.getStatusCode(),res.getStatus());
-		} catch (IOException e) {
-			fail(e.toString());
-		}
-	}
-	@Test
-	public void testBadRequest() {
-		try {
-			String xmlread=java.nio.file.Files.lines(Paths.get("./testfile/nfvNoXml.txt")).collect(Collectors.joining("\n"));
-			//System.out.println(target);
-			Response res = ClientBuilder.newClient()
-					.target(target)
-					.path("/deployment")
-					.request(MediaType.APPLICATION_XML)
-					.accept(MediaType.APPLICATION_XML)
-					.post(Entity.entity(xmlread,MediaType.APPLICATION_XML));
-			assertEquals(Status.BAD_REQUEST.getStatusCode(),res.getStatus());
-		} catch (IOException e) {
-			fail(e.toString());
-		}
-	}
+	
 }
